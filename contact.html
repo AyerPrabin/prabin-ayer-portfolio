@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05080f">
+<meta name="description" content="Get in touch with Prabin Ayer — available for freelance, collaborations, and opportunities.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2305080f' stroke='%23c9a84c' stroke-width='4'/><text x='50' y='68' text-anchor='middle' font-family='Georgia' font-size='48' font-weight='700' fill='%23c9a84c'>PA</text></svg>">
+<title>Contact | Prabin Ayer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:2rem;margin-top:2rem}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-col{display:flex;flex-direction:column;gap:1.5rem}
+.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:520px){.mini-row{grid-template-columns:1fr}}
+.mini-card{background:var(--panel);border:1px solid var(--line);padding:1.4rem}
+.mini-k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.mini-v{color:var(--cream);font-size:.85rem}
+.social-links{display:flex;gap:1rem;margin-top:.6rem;flex-wrap:wrap}
+.social-links a{font-size:.82rem;color:var(--silver)}
+.social-links a:hover{color:var(--gold-l)}
+.form-card{background:var(--panel);border:1px solid var(--gold-m);padding:2.2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+.field label{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--body);margin-bottom:.5rem}
+.field input,.field select,.field textarea{width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:.75rem 1rem;color:var(--cream);font-family:inherit;font-size:.88rem;outline:none;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold-m)}
+.field{margin-bottom:1.2rem}
+.avail-row{display:flex;gap:2rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--line);flex-wrap:wrap;justify-content:center}
+.avail-item{display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--body)}
+.dot-live{width:8px;height:8px;border-radius:50%;background:var(--green)}
+</style>
+</head>
+<body>
+<div class="scroll-progress"><div class="scroll-progress-bar" id="sp"></div></div>
+
+<nav>
+  <div class="nav-l"><span class="logo-badge">PA</span><span class="nav-name">Prabin Ayer</span></div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html" onclick="closeMenu()">Overview</a>
+    <a href="computing.html" onclick="closeMenu()">Computing Science</a>
+    <a href="hospitality.html" onclick="closeMenu()">Hospitality</a>
+    <a href="skills.html" onclick="closeMenu()">Skills</a>
+    <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+    <a href="contact.html" class="nav-cta active" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+
+<header class="page-hero" style="text-align:center">
+  <h1 class="sec-title reveal" style="margin-left:auto;margin-right:auto">Let's Build Something <em>Together</em></h1>
+  <p class="sec-sub reveal" style="margin-left:auto;margin-right:auto">Whether it's a technical collaboration, a high-pressure hospitality project, or just a quick hello — I'm always open to new opportunities.</p>
+</header>
+
+<section class="block" style="padding-top:0">
+  <div class="contact-grid">
+    <div class="contact-col">
+      <div class="mini-card reveal">
+        <span class="mini-k">Base Location</span>
+        <span class="mini-v" style="font-size:1.3rem;font-family:'Playfair Display',serif;color:#fff">London, UK</span>
+      </div>
+      <div class="mini-row">
+        <div class="mini-card reveal">
+          <span class="mini-k">Email Me</span>
+          <span class="mini-v" style="word-break:break-all">ayerprabin95@gmail.com</span>
+        </div>
+        <div class="mini-card reveal">
+          <span class="mini-k">Phone</span>
+          <span class="mini-v">+44 7775 773818</span>
+        </div>
+      </div>
+      <div class="mini-card reveal">
+        <span class="mini-k">Socials</span>
+        <div class="social-links">
+          <a href="https://github.com/AyerPrabin" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/ayerprabin/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/ayerprabin/" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/ayerprabin" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <form action="mailto:ayerprabin95@gmail.com" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Your name"></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com"></div>
+        </div>
+        <div class="field">
+          <label>Subject</label>
+          <select name="subject">
+            <option>Technical Collaboration</option><option>Hospitality Project</option><option>General Inquiry</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Your Message</label>
+          <textarea rows="6" name="message" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%">Send Message →</button>
+      </form>
+      <div class="avail-row">
+        <span class="avail-item"><span class="dot-live"></span> Available for freelance</span>
+        <span class="avail-item">Response time: &lt; 24h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="foot-logo">Prabin Ayer</div><div class="foot-sub">© 2026 Prabin Ayer · Built with precision</div></div>
+  <div class="foot-links">
+    <a href="https://github.com/AyerPrabin" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ayerprabin/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/ayerprabin/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ayerprabin" target="_blank">Facebook</a>
+    <a href="mailto:ayerprabin95@gmail.com">Email</a>
+  </div>
+</footer>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05080f">
+<meta name="description" content="Prabin Ayer's hospitality experience — lead bartender, fine dining, and event logistics across London.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2305080f' stroke='%23c9a84c' stroke-width='4'/><text x='50' y='68' text-anchor='middle' font-family='Georgia' font-size='48' font-weight='700' fill='%23c9a84c'>PA</text></svg>">
+<title>Hospitality | Prabin Ayer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
+.hosp-hero{position:relative;padding:10rem 6% 4rem;text-align:center;overflow:hidden}
+.hosp-hero .img-slot{position:absolute;inset:0;z-index:-2;border:none;border-radius:0}
+.hosp-hero::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,8,15,.75),rgba(5,8,15,.95))}
+.hosp-hero h1{max-width:760px;margin:0 auto 1rem}
+.hosp-hero p{max-width:600px;margin:0 auto;color:var(--body)}
+.timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
+@media(max-width:820px){.timeline{grid-template-columns:1fr}}
+.job-card{background:var(--panel);border:1px solid var(--line);padding:1.6rem;transition:all .25s}
+.job-card:hover{border-color:var(--gold-m);transform:translateY(-4px)}
+.job-date{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-l);margin-bottom:.4rem;display:block}
+.job-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.3rem}
+.job-place{color:var(--gold-l);font-size:.82rem;margin-bottom:.9rem}
+.job-list{list-style:none;color:var(--body);font-size:.85rem;line-height:1.9}
+.cta-box{max-width:760px;margin:0 auto;background:var(--panel);border:1px solid var(--gold-m);padding:3rem;text-align:center}
+.cta-box p{color:var(--body);margin:1rem 0 1.6rem}
+</style>
+</head>
+<body>
+<div class="scroll-progress"><div class="scroll-progress-bar" id="sp"></div></div>
+
+<nav>
+  <div class="nav-l"><span class="logo-badge">PA</span><span class="nav-name">Prabin Ayer</span></div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html" onclick="closeMenu()">Overview</a>
+    <a href="computing.html" onclick="closeMenu()">Computing Science</a>
+    <a href="hospitality.html" class="active" onclick="closeMenu()">Hospitality</a>
+    <a href="skills.html" onclick="closeMenu()">Skills</a>
+    <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+    <a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+
+<section class="hosp-hero">
+  <div class="img-slot">
+    <img src="assets/img/hospitality-hero.webp" alt="" onerror="imgFallback(this)">
+    <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Hospitality</span></div>
+  </div>
+  <h1 class="sec-title reveal">Art in the Glass.<br>Service in the Heart.</h1>
+  <p class="reveal">An adaptable, operationally-focused professional with 4+ years across hospitality and retail. A natural problem-solver who leads teams and maintains 5-star standards — currently a 5.0 TripAdvisor rating at The Cocktail Bar.</p>
+</section>
+
+<section class="block" style="padding-top:1rem">
+  <div class="divider reveal"><span>◆</span></div>
+  <div class="sec-eyebrow reveal">Career</div>
+  <h2 class="sec-title reveal">Professional <em>Journey</em></h2>
+  <div class="timeline">
+    <div class="job-card reveal">
+      <span class="job-date">Nov 2025 — Present</span>
+      <div class="job-title">Event Hospitality &amp; Logistics</div>
+      <div class="job-place">Various High-End Venues · London</div>
+      <ul class="job-list">
+        <li>Leonardo Royal St Paul's — waiter service &amp; event setup</li>
+        <li>Sky Garden — logistics, lifting &amp; shifting operations</li>
+        <li>Tesco — retail &amp; inventory management</li>
+        <li>Professional bar backing &amp; venue support</li>
+      </ul>
+    </div>
+    <div class="job-card reveal">
+      <span class="job-date">Jan 2025 — Nov 2025</span>
+      <div class="job-title">Lead Bartender</div>
+      <div class="job-place">The Cocktail Bar · London</div>
+      <ul class="job-list">
+        <li>Led bar team for 150+ guests, maintaining a 5.0 TripAdvisor rating</li>
+        <li>Improved service speed and efficiency via POS management</li>
+        <li>Coordinated complex cocktail and food menu pairings</li>
+      </ul>
+    </div>
+    <div class="job-card reveal">
+      <span class="job-date">Dec 2025 — Present</span>
+      <div class="job-title">Freelance Replenishment Assistant</div>
+      <div class="job-place">Tesco · London</div>
+      <ul class="job-list">
+        <li>Focus on stock management and retail efficiency</li>
+        <li>Supporting high-volume store operations</li>
+      </ul>
+    </div>
+    <div class="job-card reveal">
+      <span class="job-date">Jun 2022 — Nov 2022</span>
+      <div class="job-title">Bar Assistant</div>
+      <div class="job-place">Siddharat Hotel (3-Star) · Mumbai, India</div>
+      <ul class="job-list">
+        <li>Consistently high positive guest feedback</li>
+        <li>Significantly reduced beverage waste through stock control</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="cta-box reveal">
+    <h2 class="sec-title" style="margin-bottom:0">Elevate Your Next Event</h2>
+    <p>London, UK · +44 7775 773818 · ayerprabin95@gmail.com<br>UK Student Visa · Availability: highly flexible (late-night &amp; weekends)</p>
+    <div class="hero-cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn btn-gold">Get In Touch</a>
+      <a href="skills.html" class="btn btn-ghost">View Skills</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="foot-logo">Prabin Ayer</div><div class="foot-sub">© 2026 Prabin Ayer · Built with precision</div></div>
+  <div class="foot-links">
+    <a href="https://github.com/AyerPrabin" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ayerprabin/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/ayerprabin/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ayerprabin" target="_blank">Facebook</a>
+    <a href="mailto:ayerprabin95@gmail.com">Email</a>
+  </div>
+</footer>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

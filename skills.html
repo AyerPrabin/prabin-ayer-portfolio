@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05080f">
+<meta name="description" content="Prabin Ayer's technical and hospitality skills — dual expertise in Computing Science and premium service.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2305080f' stroke='%23c9a84c' stroke-width='4'/><text x='50' y='68' text-anchor='middle' font-family='Georgia' font-size='48' font-weight='700' fill='%23c9a84c'>PA</text></svg>">
+<title>Skills | Prabin Ayer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
+.skill-section{margin-bottom:4rem}
+.skill-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.skill-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.skill-icon.tech{background:rgba(126,168,255,.12);border:1px solid rgba(126,168,255,.3)}
+.skill-icon.hosp{background:rgba(212,149,106,.12);border:1px solid rgba(212,149,106,.3)}
+.skill-panel{background:var(--panel);border:1px solid var(--line);padding:1.8rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.dev-tag{padding:.3rem .8rem;border-radius:4px;background:rgba(126,168,255,.08);border:1px solid rgba(126,168,255,.25);color:#7ea8ff;font-size:.68rem;font-weight:600;letter-spacing:.02em}
+.ops-list{list-style:none;color:var(--body);font-size:.85rem;line-height:2.1}
+.hosp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:820px){.hosp-grid{grid-template-columns:1fr}}
+.cert-list{display:flex;flex-direction:column;gap:.6rem}
+.cert-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1rem;background:var(--panel-2);border:1px solid var(--line);font-size:.85rem}
+.cert-row .ok{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="scroll-progress"><div class="scroll-progress-bar" id="sp"></div></div>
+
+<nav>
+  <div class="nav-l"><span class="logo-badge">PA</span><span class="nav-name">Prabin Ayer</span></div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html" onclick="closeMenu()">Overview</a>
+    <a href="computing.html" onclick="closeMenu()">Computing Science</a>
+    <a href="hospitality.html" onclick="closeMenu()">Hospitality</a>
+    <a href="skills.html" class="active" onclick="closeMenu()">Skills</a>
+    <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+    <a href="contact.html" class="nav-cta" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="sec-eyebrow reveal">Dual Expertise</div>
+  <h1 class="sec-title reveal">Technical &amp; Professional <em>Skills</em></h1>
+  <p class="sec-sub reveal">Bridging complex logic with curated human experiences — the precision of software engineering alongside the artistry of premium hospitality.</p>
+</header>
+
+<section class="block" style="padding-top:0">
+
+  <div class="skill-section">
+    <div class="skill-head reveal"><div class="skill-icon tech">💻</div><h2 class="sec-title" style="margin:0">Computing Science</h2></div>
+    <div class="skill-panel reveal">
+      <div class="skillbar-row"><div class="skillbar-head"><span class="skillbar-name">Python</span><span class="skillbar-pct">90%</span></div><div class="skillbar-track"><div class="skillbar-fill" style="width:90%"></div></div></div>
+      <div class="skillbar-row"><div class="skillbar-head"><span class="skillbar-name">TypeScript / JavaScript</span><span class="skillbar-pct">85%</span></div><div class="skillbar-track"><div class="skillbar-fill" style="width:85%"></div></div></div>
+      <div class="skillbar-row"><div class="skillbar-head"><span class="skillbar-name">SQL / Supabase</span><span class="skillbar-pct">80%</span></div><div class="skillbar-track"><div class="skillbar-fill" style="width:80%"></div></div></div>
+      <div class="skillbar-row" style="margin-bottom:0"><div class="skillbar-head"><span class="skillbar-name">C++</span><span class="skillbar-pct">65%</span></div><div class="skillbar-track"><div class="skillbar-fill" style="width:65%"></div></div></div>
+      <div class="skills-t">Frameworks &amp; Tools</div>
+      <div class="tag-row">
+        <span class="dev-tag">Flask</span><span class="dev-tag">discord.py</span><span class="dev-tag">Supabase</span>
+        <span class="dev-tag">Node.js</span><span class="dev-tag">Tailwind CSS</span><span class="dev-tag">Git &amp; CI/CD</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-section">
+    <div class="skill-head reveal"><div class="skill-icon hosp">🍸</div><h2 class="sec-title" style="margin:0">Hospitality Mastery</h2></div>
+    <div class="skill-panel reveal">
+      <div class="hosp-grid">
+        <div>
+          <div class="skills-t" style="margin-top:0">Core Skills</div>
+          <ul class="ops-list">
+            <li>Mixology &amp; craft cocktails — balance, texture, presentation</li>
+            <li>Fine dining service — silver service, high-pressure guest interaction</li>
+            <li>Inventory &amp; stock control — data-backed management</li>
+            <li>Team leadership on the floor</li>
+          </ul>
+        </div>
+        <div>
+          <div class="skills-t" style="margin-top:0">Certifications</div>
+          <div class="cert-list">
+            <div class="cert-row"><span>Food Safety Level 2</span><span class="ok">✓</span></div>
+            <div class="cert-row"><span>Mixology Certified</span><span class="ok">✓</span></div>
+            <div class="cert-row"><span>DBS Cleared</span><span class="ok">✓</span></div>
+            <div class="cert-row"><span>Team Leadership</span><span class="ok">✓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div><div class="foot-logo">Prabin Ayer</div><div class="foot-sub">© 2026 Prabin Ayer · Built with technical precision</div></div>
+  <div class="foot-links">
+    <a href="https://github.com/AyerPrabin" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ayerprabin/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/ayerprabin/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/ayerprabin" target="_blank">Facebook</a>
+    <a href="mailto:ayerprabin95@gmail.com">Email</a>
+  </div>
+</footer>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
