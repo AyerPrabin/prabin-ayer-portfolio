@@ -39,10 +39,21 @@
    code milestones (blue) with actual service milestones (copper) in one strip — makes
    the "both worlds" claim tangible instead of just asserting it in a tagline. ── */
 .log-section{padding:3.5rem 6% 1rem;max-width:800px;margin:0 auto}
-.log-strip{border-left:1px solid var(--line);margin-top:1.6rem}
-.log-entry{position:relative;padding:0 0 2rem 1.8rem}
-.log-entry:last-child{padding-bottom:0}
-.log-entry::before{content:'';position:absolute;left:-4.5px;top:.35rem;width:8px;height:8px;border-radius:50%;background:var(--dot,var(--tech))}
+/* ── the numbers already exist in the log copy below (150+ events, 5.0★, zero downtime) —
+   pulling them up front gives the section something to look at before you start reading,
+   instead of five identical text lines being the whole first impression. ── */
+.stat-row{display:flex;gap:0;margin:1.8rem 0 .4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{flex:1;padding:1.3rem 1.4rem;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,4.2vw,2.6rem);line-height:1;color:var(--tech)}
+.stat.warm .stat-num{color:var(--warm-l)}
+.stat-label{margin-top:.5rem;font-size:.78rem;color:var(--body);line-height:1.45;max-width:20ch}
+@media(max-width:640px){.stat-row{flex-direction:column}.stat{border-right:none;border-bottom:1px solid var(--line);padding:1.1rem 0}.stat:last-child{border-bottom:none}}
+.log-strip{border-left:1px solid var(--line);margin-top:1.8rem}
+.log-entry{position:relative;padding:.6rem 1rem .6rem 1.8rem;margin-bottom:1.3rem;border-radius:4px;transition:background-color .25s}
+.log-entry:hover{background:var(--panel-2)}
+.log-entry:last-child{margin-bottom:0}
+.log-entry::before{content:'';position:absolute;left:-4.5px;top:1.15rem;width:8px;height:8px;border-radius:50%;background:var(--dot,var(--tech))}
 .log-entry.svc{--dot:var(--warm-l)}
 .log-meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--body);display:flex;gap:.6rem;align-items:baseline;margin-bottom:.3rem}
 .log-tag{color:var(--dot,var(--tech));text-transform:uppercase;font-weight:500}
@@ -120,6 +131,11 @@
 <section class="log-section">
   <div class="sec-eyebrow reveal">Recent</div>
   <h2 class="sec-title reveal">Two logs, <em>one person</em></h2>
+  <div class="stat-row reveal">
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Downtime incidents running JD Esports Arena live</div></div>
+    <div class="stat warm"><div class="stat-num">150+</div><div class="stat-label">Guest events led at The Cocktail Bar, London</div></div>
+    <div class="stat warm"><div class="stat-num">5.0★</div><div class="stat-label">TripAdvisor rating, held the whole run</div></div>
+  </div>
   <div class="log-strip">
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span></div>
