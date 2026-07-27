@@ -108,7 +108,10 @@
 
 <section id="hero">
   <div class="img-slot">
-    <img src="assets/img/portrait-2.jpg" alt="Prabin Ayer at Tower Bridge, London" onerror="imgFallback(this)">
+    <picture>
+      <source srcset="assets/img/portrait-2.webp" type="image/webp">
+      <img src="assets/img/portrait-2.jpg" width="1440" height="1440" alt="Prabin Ayer at Tower Bridge, London" loading="eager" fetchpriority="high" onerror="imgFallback(this)">
+    </picture>
     <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Prabin</span></div>
   </div>
   <div class="hero-inner">
@@ -165,11 +168,17 @@
     <div class="about-photos reveal parallax" data-anim="left" data-speed="0.05">
       <div class="about-photo-group">
         <div class="about-main-photo img-slot">
-          <img src="assets/img/portrait.jpg" alt="Prabin Ayer at Tower Bridge, London" onerror="imgFallback(this)">
+          <picture>
+            <source srcset="assets/img/portrait.webp" type="image/webp">
+            <img src="assets/img/portrait.jpg" width="1440" height="1440" alt="Prabin Ayer at Tower Bridge, London" loading="lazy" onerror="imgFallback(this)">
+          </picture>
           <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Prabin</span></div>
         </div>
         <div class="about-snap img-slot">
-          <img src="assets/img/portrait-2.jpg" alt="Prabin Ayer, same evening" onerror="imgFallback(this)">
+          <picture>
+            <source srcset="assets/img/portrait-2.webp" type="image/webp">
+            <img src="assets/img/portrait-2.jpg" width="1440" height="1440" alt="Prabin Ayer, same evening" loading="lazy" onerror="imgFallback(this)">
+          </picture>
           <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Prabin</span></div>
         </div>
       </div>
