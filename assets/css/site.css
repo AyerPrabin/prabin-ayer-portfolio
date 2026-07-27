@@ -8,9 +8,14 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #05080f; --bg-2: #0a0e1a; --panel: #0e1424; --panel-2: #121a2e; --line: #1c2840;
-  --gold: #c9a84c; --gold-l: #e2c97e; --gold-m: #7e6630; --cream: #f4efe6; --silver: #aab4cc;
-  --body: #7e8eb0; --green: #5aab8a; --warm: #d4956a; --warm-l: #e3ab7e; --red: #c04a4a;
+  /* Neutral-warm near-black, not the blue-tinted "tech portfolio" default — deepened brass
+     gold instead of bright yellow-gold (ties to the bar/hospitality world, reads sharper).
+     --tech / --warm-l are a deliberate PAIR: they mark which world a piece of content
+     belongs to (code vs. service) wherever that distinction matters, not decoration. */
+  --bg: #07070a; --bg-2: #0b0c0f; --panel: #0d0e12; --panel-2: #131419; --line: #1e1f24;
+  --gold: #b8934a; --gold-l: #d9b06a; --gold-m: #6b5530; --cream: #f0ebe0; --silver: #9a9da4;
+  --body: #8a8d93; --green: #5aab8a; --warm: #c47a4a; --warm-l: #d9935f; --red: #c04a4a;
+  --tech: #6f9eff;
 }
 
 html { scroll-behavior: smooth; }
@@ -159,4 +164,32 @@ footer { border-top: 1px solid var(--line); padding: 2.5rem 6%; display: flex; j
 @media (max-width: 760px) {
   main, .block { padding: 6.5rem 5% 3.5rem; }
   .page-hero { padding: 7rem 5% 2.5rem; }
+}
+
+/* ── AI chat widget ── sits above .btt (bottom:1.5rem) so the two never overlap;
+   below nav's z-index:100 so it never floats over the mobile menu. */
+.chat-launcher { position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 95; width: 52px; height: 52px; border-radius: 50%; background: var(--gold); border: none; color: var(--bg); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 24px -8px rgba(201,168,76,.5); transition: transform .25s; }
+.chat-launcher:hover { transform: translateY(-2px) scale(1.04); }
+.chat-launcher svg { width: 24px; height: 24px; }
+
+.chat-panel { position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 96; width: min(340px, calc(100vw - 2.4rem)); max-height: min(480px, calc(100vh - 8rem)); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 60px -16px rgba(0,0,0,.7); }
+.chat-panel.open { display: flex; }
+.chat-head { padding: .9rem 1.1rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.chat-head-t { font-family: 'Playfair Display', serif; font-size: .92rem; color: var(--gold-l); }
+.chat-head-sub { font-size: .66rem; color: var(--body); letter-spacing: .06em; text-transform: uppercase; margin-top: .15rem; }
+.chat-close { background: none; border: none; color: var(--body); font-size: 1.1rem; cursor: pointer; line-height: 1; padding: .2rem; }
+.chat-close:hover { color: var(--gold-l); }
+.chat-body { flex: 1; overflow-y: auto; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: .7rem; min-height: 160px; }
+.chat-msg { font-size: .82rem; line-height: 1.55; padding: .55rem .8rem; border-radius: 8px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; background: var(--gold); color: var(--bg); }
+.chat-msg.bot { align-self: flex-start; background: var(--panel-2); color: var(--cream); border: 1px solid var(--line); }
+.chat-msg.hint { align-self: center; color: var(--body); font-size: .74rem; text-align: center; }
+.chat-form { display: flex; gap: .5rem; padding: .8rem; border-top: 1px solid var(--line); }
+.chat-input { flex: 1; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; color: var(--cream); padding: .6rem .7rem; font-size: .8rem; font-family: inherit; }
+.chat-input:focus { outline: none; border-color: var(--gold-m); }
+.chat-send { background: var(--gold); color: var(--bg); border: none; border-radius: 6px; padding: 0 .9rem; font-weight: 600; cursor: pointer; font-size: .8rem; }
+.chat-send:disabled { opacity: .5; cursor: not-allowed; }
+
+@media (max-width: 480px) {
+  .chat-launcher, .chat-panel { right: 1rem; bottom: 4.8rem; }
 }

@@ -38,6 +38,21 @@ function imgFallback(img) {
 
   const sp = document.getElementById('sp');
   const btt = document.getElementById('btt');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Elements with class="parallax" data-speed="0.1" drift opposite the scroll direction
+  // at a fraction of scroll speed — a subtle depth cue, separate from .reveal's one-shot
+  // fade-in so the two never fight over the same transform.
+  const parallaxEls = reduceMotion ? [] : Array.from(document.querySelectorAll('.parallax'));
+  function applyParallax() {
+    const vh = window.innerHeight;
+    parallaxEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const centerOffset = (rect.top + rect.height / 2) - vh / 2;
+      const speed = parseFloat(el.dataset.speed || .1);
+      el.style.transform = `translateY(${(-centerOffset * speed).toFixed(2)}px)`;
+    });
+  }
+
   let ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -47,9 +62,11 @@ function imgFallback(img) {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       if (sp) sp.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
       if (btt) btt.classList.toggle('show', y > 600);
+      applyParallax();
       ticking = false;
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
   onScroll();
 })();
