@@ -20,6 +20,7 @@ Every image slot degrades gracefully to a clean icon placeholder (see `imgFallba
 | File | Used on | Status |
 |---|---|---|
 | `assets/img/portrait.jpg` | `index.html` hero | ✅ real photo |
+| `assets/img/portrait-dots.bin` + `portrait-cut.webp` | `index.html` hero: 3D dot sculpture (`assets/js/dot-hero.js`) and the Reveal photo | ✅ baked from portrait.jpg (cut-out with rembg, 18k dots) |
 | `assets/img/hospitality-hero.webp` | `hospitality.html` header background | ✅ real photo |
 | `assets/img/jd-arena.jpg` | `gallery.html` — JD Esports Arena card | ✅ real (live site banner) |
 | `assets/img/zulu-ai.jpg` | `gallery.html` — ZULU AI card | ✅ real (live screenshot of the chat UI) |

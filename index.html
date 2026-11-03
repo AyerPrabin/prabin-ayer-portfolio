@@ -13,25 +13,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>.dot-photo{opacity:1}</style></noscript>
 <style>
 .logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
 
-/* ── hero, take two: the quiet "typography only" version read as flat rather than
-   restrained. Same identity (dark, brass gold, Fraunces) turned up in scale — a real
-   full-bleed photo instead of a 52px avatar, much bigger type, higher-contrast copy. ── */
-#hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:6rem 6% 4.5rem;overflow:hidden}
-#hero .img-slot{position:absolute;inset:0;z-index:-2;border:none}
-#hero::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,7,10,.35) 0%,rgba(7,7,10,.55) 45%,rgba(7,7,10,.96) 92%)}
-.hero-inner{max-width:900px;margin:0 auto;width:100%}
-.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);opacity:.85;margin-bottom:1.6rem;display:flex;align-items:center;gap:.6rem}
-.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-.hero-name{font-family:'Fraunces',serif;font-size:clamp(3.4rem,10vw,7rem);font-weight:600;color:#fff;line-height:.98;letter-spacing:-.015em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
-.hero-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.5rem,3.2vw,2.05rem);line-height:1.35;margin:1.5rem 0 1.7rem;max-width:640px}
+/* ── hero, take three: the portrait as a 3D dot sculpture (assets/js/dot-hero.js) standing in
+   front of one giant word. Dots follow the cursor; Reveal dissolves them into the real photo. ── */
+#hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:2rem;padding:5.5rem 6% 0;overflow:hidden;isolation:isolate;
+  background:radial-gradient(60% 55% at 68% 58%,rgba(196,122,74,.16),transparent 70%),var(--bg)}
+.hero-word{position:absolute;left:0;right:0;top:15svh;z-index:-1;text-align:center;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(4.6rem,17vw,17rem);line-height:.8;letter-spacing:-.03em;
+  background:linear-gradient(180deg,#e9d3a6 0%,var(--gold) 38%,rgba(107,85,48,.25) 78%,transparent 100%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;pointer-events:none}
+.hero-inner{position:relative;max-width:540px;padding-bottom:4.5rem}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;line-height:1.6;text-transform:uppercase;color:var(--cream);opacity:.85;margin-bottom:1.4rem;display:flex;align-items:baseline;gap:.6rem}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;transform:translateY(-1px)}
+.hero-name{font-family:'Fraunces',serif;font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;color:#fff;line-height:.98;letter-spacing:-.015em}
+.hero-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.35;margin:1.2rem 0 1.4rem}
 .hero-tagline .tech{color:var(--tech)}
 .hero-tagline .hosp{color:var(--warm-l)}
-.hero-desc{color:var(--cream);opacity:.82;font-size:1.08rem;line-height:1.85;max-width:580px;margin-bottom:2.4rem}
+.hero-desc{color:var(--cream);opacity:.78;font-size:1rem;line-height:1.8;margin-bottom:2rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
-@media(max-width:600px){#hero{min-height:82vh;padding:5.5rem 6% 3.5rem}}
+/* the stage: canvas + the real cut-out photo underneath, both pinned to the bottom edge */
+.dot-stage{position:relative;height:min(86svh,860px);width:min(70vw,calc(min(86svh,860px) * 1.05));justify-self:end}
+.dot-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.dot-photo{position:absolute;bottom:0;left:50%;height:100%;width:auto;aspect-ratio:690/838;transform:translateX(-50%);opacity:0;transition:opacity 1.1s ease .15s;
+  -webkit-mask-image:linear-gradient(0deg,transparent 0,#000 16%);mask-image:linear-gradient(0deg,transparent 0,#000 16%);pointer-events:none}
+.dot-stage.revealed .dot-photo{opacity:1}
+.dot-stage.no-gl .dot-photo{transition:none}
+.dot-reveal{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border-radius:999px;
+  background:rgba(7,7,10,.72);border:1px solid var(--gold-m);color:var(--cream);font:500 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:border-color .2s,color .2s}
+.dot-reveal:hover{border-color:var(--gold-l);color:var(--gold-l)}
+.dot-reveal:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
+.dot-reveal .ring{width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;box-shadow:0 0 10px rgba(217,147,95,.8)}
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding:4.5rem 6% 0;gap:0}
+  .hero-word{top:11svh;font-size:clamp(2.6rem,13.4vw,8rem)}
+  .dot-stage{order:-1;justify-self:center;height:min(60svh,560px);width:100%}
+  .hero-inner{padding:1.2rem 0 3.5rem}
+}
 
 /* ── the signature element: a real log, not a decorative stat bar. Interleaves actual
    code milestones (blue) with actual service milestones (copper) in one strip — makes
@@ -107,23 +126,21 @@
 </nav>
 
 <section id="hero">
-  <div class="img-slot">
-    <picture>
-      <source srcset="assets/img/portrait-2.webp" type="image/webp">
-      <img src="assets/img/portrait-2.jpg" width="1440" height="1440" alt="Prabin Ayer at Tower Bridge, London" loading="eager" fetchpriority="high" onerror="imgFallback(this)">
-    </picture>
-    <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Prabin</span></div>
-  </div>
+  <div class="hero-word" aria-hidden="true">DEVELOPER</div>
   <div class="hero-inner">
     <p class="hero-eyebrow"><span class="dot"></span>London · funds his own degree · builds under pressure</p>
     <h1 class="hero-name reveal">Prabin Ayer</h1>
     <p class="hero-tagline reveal"><span class="tech">Ships production code.</span> <span class="hosp">Runs a bar floor at 5.0★.</span></p>
-    <p class="hero-desc reveal">BSc Computing Science candidate at Coventry University London (2027), building a live tournament platform and its AI Discord bot in my spare time — funded entirely by bartending and warehouse shifts, not a loan. I move between a terminal and a service rail in the same week, and both sides sharpen the other.</p>
+    <p class="hero-desc reveal">BSc Computing Science candidate at Coventry University London (2027), building a live tournament platform and its AI Discord bot in my spare time — funded entirely by bartending and warehouse shifts, not a loan.</p>
     <div class="hero-cta reveal">
       <a href="contact.html" class="btn btn-gold">Hire Me</a>
       <a href="computing.html" class="btn btn-ghost">See My Work</a>
-      <a href="https://github.com/AyerPrabin" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="https://github.com/AyerPrabin" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
     </div>
+  </div>
+  <div class="dot-stage" id="dot-stage">
+    <img class="dot-photo" src="assets/img/portrait-cut.webp" width="690" height="838" alt="Prabin Ayer" fetchpriority="high">
+    <button type="button" class="dot-reveal" id="dot-reveal" aria-pressed="false" hidden><span class="ring" aria-hidden="true"></span><span>Reveal</span></button>
   </div>
 </section>
 
@@ -235,6 +252,8 @@
 </footer>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="assets/js/site.js"></script>
+<script type="module" src="assets/js/dot-hero.js"></script>
+<script>setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)</script>
 <script src="assets/js/chat-widget.js"></script>
 </body>
 </html>
