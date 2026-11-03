@@ -16,6 +16,7 @@
 .proj-status{position:absolute;top:1.1rem;right:1.1rem;font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:.16rem .5rem;border-radius:2px}
 .proj-status.live{color:var(--green);border:1px solid var(--green)}
 .proj-status.wip{color:var(--warm-l);border:1px solid var(--warm)}
+.proj-status~.proj-type{padding-right:6.6rem}   /* keep the category clear of the status badge */
 </style>
 </head>
 <body>
@@ -37,7 +38,7 @@
 <header class="page-hero">
   <div class="sec-eyebrow reveal">Portfolio</div>
   <h1 class="sec-title reveal">My Computing Science <em>Projects</em></h1>
-  <p class="sec-sub reveal">Real, working systems I've built and shipped — from a live esports tournament platform to a Discord AI bot with voice and music. Every project here links to actual source.</p>
+  <p class="sec-sub reveal">Real, working systems I've built and shipped — from a live esports tournament platform to a Discord AI bot with voice and music. Most link to the source; the private ones are one message away from a walkthrough.</p>
 </header>
 
 <section class="block" style="padding-top:0">
@@ -47,10 +48,10 @@
       <span class="proj-status live">Live</span>
       <div class="proj-type">Full-Stack · Community Platform</div>
       <h3 class="proj-t">JD Esports Arena</h3>
-      <p class="proj-d">A live Free Fire tournament platform for the community back home in Nepal: player registration, an admin panel for running brackets and publishing results, device/platform enforcement, public ban lists, and a Supabase backend with row-level security throughout.</p>
-      <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span></div>
+      <p class="proj-d">A live Free Fire tournament platform for the community back home in Nepal, now with its own Android app. Players register squads, hold a points wallet topped up through eSewa and Khalti, challenge each other for stakes with automatic refunds, find teammates (ZULU AI groups same-language players into a squad every week) and chat with photos and video. Staff run events from a moderator panel that matches each point load to the real payment. Supabase backend with row-level security throughout.</p>
+      <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span><span class="pt">Android (TWA)</span></div>
       <span class="proj-related">🔗 Its Discord bot is <a href="#zulu-ai">ZULU AI</a>, below</span>
-      <a href="contact.html" class="proj-link">Ask For A Demo →</a>
+      <a href="https://jdesport.co.uk" target="_blank" rel="noopener" class="proj-link">Visit the live site →</a>
     </div>
 
     <div class="proj feat reveal" id="zulu-ai">
@@ -61,6 +62,23 @@
       <div class="proj-tags"><span class="pt">Python</span><span class="pt">discord.py</span><span class="pt">Flask</span><span class="pt">LLM orchestration</span></div>
       <span class="proj-related">🔗 Built for <a href="#jd-esports-arena">JD Esports Arena</a>, above</span>
       <a href="https://github.com/AyerPrabin/Zulu-Ai" target="_blank" class="proj-link">GitHub →</a>
+    </div>
+
+    <div class="proj feat reveal" id="zulu-personal">
+      <span class="proj-status wip">In Progress</span>
+      <div class="proj-type">Automation · Python + Android</div>
+      <h3 class="proj-t">ZULU AI Personal</h3>
+      <p class="proj-d">A personal operations system that manages agency shift work around university. It syncs Google and Outlook calendars, scores shift offers against lectures, rest rules, travel time and real take-home pay, and runs an Android agent (accessibility + notification listener) over an encrypted WebSocket bridge. Every booking passes a human approval gate, starts in a "ghost-tap" mode that never presses anything, and has a two-tier kill switch. Local Whisper voice control and a live dashboard on top. 760+ tests, mypy strict.</p>
+      <div class="proj-tags"><span class="pt">Python</span><span class="pt">Kotlin</span><span class="pt">WebSockets</span><span class="pt">Whisper</span><span class="pt">Next.js</span></div>
+      <a href="contact.html" class="proj-link">Private repo: ask for a walkthrough →</a>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-type">Android · Native</div>
+      <h3 class="proj-t">JD Admin</h3>
+      <p class="proj-d">A 21 KB native Android app for the JD Arena staff, with no libraries. It forwards eSewa / Khalti "money received" alerts to a Supabase edge function so mods can approve point loads in seconds, opens the mod and admin tools in Chrome Custom Tabs, and updates itself from private, signed download links.</p>
+      <div class="proj-tags"><span class="pt">Java</span><span class="pt">Android SDK</span><span class="pt">Deno</span></div>
+      <a href="#jd-esports-arena" class="proj-link">Part of JD Esports Arena ↑</a>
     </div>
 
     <div class="proj reveal">
@@ -81,18 +99,18 @@
 
     <div class="proj reveal">
       <span class="proj-status wip">In Progress</span>
-      <div class="proj-type">Next.js</div>
+      <div class="proj-type">Full-Stack · Business</div>
       <h3 class="proj-t">jd-stock</h3>
-      <p class="proj-d">A Next.js/TypeScript project, in early development.</p>
-      <div class="proj-tags"><span class="pt">TypeScript</span><span class="pt">Next.js</span></div>
+      <p class="proj-d">An inventory and sales system for the family motor showroom: stock, a sales history page, and customer and finance records that only the owner role can read.</p>
+      <div class="proj-tags"><span class="pt">TypeScript</span><span class="pt">Next.js</span><span class="pt">Supabase</span></div>
       <a href="https://github.com/AyerPrabin/jd-stock" target="_blank" class="proj-link">GitHub →</a>
     </div>
 
     <div class="proj reveal">
       <div class="proj-type">HTML/CSS/JS</div>
       <h3 class="proj-t">This Portfolio</h3>
-      <p class="proj-d">The site you're on right now — hand-built, no framework, sharing a design system with the rest of my work.</p>
-      <div class="proj-tags"><span class="pt">HTML/CSS</span><span class="pt">Vanilla JS</span></div>
+      <p class="proj-d">The site you're on right now: hand-built, no framework. The hero is my portrait as a 3D sculpture of 28,000 dots that turns its head towards your cursor, made from one photo with an AI cut-out (rembg) and an AI depth map (Depth Anything V2), drawn with WebGL.</p>
+      <div class="proj-tags"><span class="pt">HTML/CSS</span><span class="pt">Three.js / WebGL</span><span class="pt">Python</span></div>
       <a href="https://github.com/AyerPrabin/prabin-ayer-portfolio" target="_blank" class="proj-link">GitHub →</a>
     </div>
 
