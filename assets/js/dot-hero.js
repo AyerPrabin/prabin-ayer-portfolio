@@ -148,6 +148,7 @@ async function start() {
   }
   function loop() { if (!raf) raf = requestAnimationFrame(frame); }
   stage.classList.add('gl-on');
+  stage.classList.remove('revealed', 'no-gl'); hero.classList.remove('is-revealed');   // the 5 s safety photo, if a slow phone hit it first
   loop();
 }
 const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
