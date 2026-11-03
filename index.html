@@ -23,6 +23,10 @@
   background:radial-gradient(60% 55% at 68% 58%,rgba(196,122,74,.16),transparent 70%),var(--bg)}
 .hero-word{position:absolute;left:0;right:0;top:15svh;z-index:-1;text-align:center;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(4.6rem,17vw,17rem);line-height:.8;letter-spacing:-.03em;
   background:linear-gradient(180deg,#e9d3a6 0%,var(--gold) 38%,rgba(107,85,48,.25) 78%,transparent 100%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;pointer-events:none}
+/* on Reveal the word catches fire, like the dots handed their colour to it */
+.hero-word::after{content:attr(data-text);position:absolute;inset:0;background:linear-gradient(180deg,#ffb27a 0%,#e0531f 40%,rgba(140,30,8,.25) 80%,transparent 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transition:opacity 1.2s ease .2s}
+#hero.is-revealed .hero-word::after{opacity:1}
 .hero-inner{position:relative;max-width:540px;padding-bottom:4.5rem}
 .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;line-height:1.6;text-transform:uppercase;color:var(--cream);opacity:.85;margin-bottom:1.4rem;display:flex;align-items:baseline;gap:.6rem}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;transform:translateY(-1px)}
@@ -33,9 +37,9 @@
 .hero-desc{color:var(--cream);opacity:.78;font-size:1rem;line-height:1.8;margin-bottom:2rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
 /* the stage: canvas + the real cut-out photo underneath, both pinned to the bottom edge */
-.dot-stage{position:relative;height:min(86svh,860px);width:min(70vw,calc(min(86svh,860px) * 1.05));justify-self:end}
+.dot-stage{position:relative;height:min(80svh,780px);width:min(53vw,calc(min(80svh,780px) * 1.3));justify-self:end}
 .dot-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.dot-photo{position:absolute;bottom:0;left:50%;height:100%;width:auto;aspect-ratio:690/838;transform:translateX(-50%);opacity:0;transition:opacity 1.1s ease .15s;
+.dot-photo{position:absolute;bottom:0;left:50%;width:var(--photo-w,100%);height:auto;aspect-ratio:690/619;transform:translateX(-50%);opacity:0;transition:opacity 1.1s ease .15s;
   -webkit-mask-image:linear-gradient(0deg,transparent 0,#000 16%);mask-image:linear-gradient(0deg,transparent 0,#000 16%);pointer-events:none}
 .dot-stage.revealed .dot-photo{opacity:1}
 .dot-stage.no-gl .dot-photo{transition:none}
@@ -48,7 +52,7 @@
 @media(max-width:900px){
   #hero{grid-template-columns:1fr;padding:4.5rem 6% 0;gap:0}
   .hero-word{top:11svh;font-size:clamp(2.6rem,13.4vw,8rem)}
-  .dot-stage{order:-1;justify-self:center;height:min(60svh,560px);width:100%}
+  .dot-stage{order:-1;justify-self:center;height:auto;aspect-ratio:1/1;max-height:62svh;width:100%}
   .hero-inner{padding:1.2rem 0 3.5rem}
 }
 
@@ -126,7 +130,7 @@
 </nav>
 
 <section id="hero">
-  <div class="hero-word" aria-hidden="true">DEVELOPER</div>
+  <div class="hero-word" aria-hidden="true" data-text="DEVELOPER">DEVELOPER</div>
   <div class="hero-inner">
     <p class="hero-eyebrow"><span class="dot"></span>London · funds his own degree · builds under pressure</p>
     <h1 class="hero-name reveal">Prabin Ayer</h1>
@@ -139,7 +143,7 @@
     </div>
   </div>
   <div class="dot-stage" id="dot-stage">
-    <img class="dot-photo" src="assets/img/portrait-cut.webp" width="690" height="838" alt="Prabin Ayer" fetchpriority="high">
+    <img class="dot-photo" src="assets/img/portrait-cut.webp" width="690" height="619" alt="Prabin Ayer" fetchpriority="high">
     <button type="button" class="dot-reveal" id="dot-reveal" aria-pressed="false" hidden><span class="ring" aria-hidden="true"></span><span>Reveal</span></button>
   </div>
 </section>
