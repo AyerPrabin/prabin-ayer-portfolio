@@ -114,8 +114,8 @@ async function start() {
   }, { passive: true });
 
   let revealed = false, sc = reduce ? 0 : 1, visible = true, raf = 0;
-  btn.hidden = false;
-  btn.addEventListener('click', () => {
+  if (btn) btn.hidden = false;
+  btn?.addEventListener('click', () => {
     revealed = !revealed;
     stage.classList.toggle('revealed', revealed); hero.classList.toggle('is-revealed', revealed);
     btn.setAttribute('aria-pressed', revealed);
