@@ -81,9 +81,9 @@ async function start() {
       void main(){
         vec2 c = gl_PointCoord - .5; float d = dot(c, c);
         if (d > .25) discard;
-        vec3 ember = vec3(.6,.12,.03), hot = vec3(1.,.42,.12), spark = vec3(1.,.82,.55);
+        vec3 ember = vec3(.62,.08,.02), hot = vec3(1.,.32,.08), spark = vec3(1.,.74,.45);
         vec3 col = mix(ember, hot, smoothstep(.15,.6,vL)); col = mix(col, spark, smoothstep(.75,1.,vL));
-        gl_FragColor = vec4(col, vA * (1. - d*3.2) * (.5 + vL*.6));
+        gl_FragColor = vec4(col, vA * (1. - d*3.2) * (.55 + vL*.65));
       }`,
   });
   body.add(new THREE.Points(geo, mat));
@@ -96,7 +96,7 @@ async function start() {
     S = Math.min(H / GH, W / GW);                             // bust fills the stage, bottom-aligned like the photo
     body.position.y = -(H - GH * S) / 2;
     mat.uniforms.uScale.value = S;
-    mat.uniforms.uSize.value = Math.max(1.7, S * 1.0) * renderer.getPixelRatio();
+    mat.uniforms.uSize.value = Math.max(1.25, S * .72) * renderer.getPixelRatio();   // fine sand, like the reel
     stage.style.setProperty('--photo-w', GW * S + 'px');
   }
   size(); new ResizeObserver(size).observe(stage);
@@ -132,11 +132,11 @@ async function start() {
     const t = (now - t0) / 1000;
     let ty = 0, tp = 0;
     if (!revealed && !reduce) {
-      if (now - lastMove < 2500) { ty = clamp(look.x, -1, 1) * .8; tp = clamp(look.y, -1, 1) * .4; }
-      else { ty = Math.sin(t * .45) * .55; tp = Math.sin(t * .3) * .08; }      // idle / touch: looks around
+      if (now - lastMove < 2500) { ty = clamp(look.x, -1, 1) * .26; tp = clamp(look.y, -1, 1) * .2; }   // just a bit: a glance, not a spin
+      else { ty = Math.sin(t * .4) * .12; tp = Math.sin(t * .27) * .05; }      // idle / touch: a slow, small look around
     }
-    head.yaw += (ty - head.yaw) * .08; head.pitch += (tp - head.pitch) * .08;
-    torso.yaw += (ty * .22 - torso.yaw) * .05;
+    head.yaw += (ty - head.yaw) * .06; head.pitch += (tp - head.pitch) * .06;
+    torso.yaw += (ty * .15 - torso.yaw) * .04;
     body.rotation.y = torso.yaw; body.rotation.x = head.pitch * .12;
     m4.makeRotationFromEuler(eul.set(head.pitch * .85, head.yaw * .78, -head.yaw * .05, 'YXZ'));
     mat.uniforms.uHead.value.setFromMatrix4(m4);
