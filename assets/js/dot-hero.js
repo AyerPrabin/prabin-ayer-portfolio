@@ -19,7 +19,7 @@ async function start() {
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: 'low-power' }); }
   catch { return fallback(); }
-  const buf = await fetch('assets/img/portrait-dots.bin').then(r => r.ok ? r.arrayBuffer() : null).catch(() => null);
+  const buf = await fetch('assets/img/portrait-dots.bin?v=5').then(r => r.ok ? r.arrayBuffer() : null).catch(() => null);
   if (!buf) return fallback();
   const raw = new Uint16Array(buf), n0 = raw.length / 3;
 
