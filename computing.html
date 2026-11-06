@@ -16,6 +16,8 @@
 .proj-status{position:absolute;top:1.1rem;right:1.1rem;font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:.16rem .5rem;border-radius:2px}
 .proj-status.live{color:var(--green);border:1px solid var(--green)}
 .proj-status.wip{color:var(--warm-l);border:1px solid var(--warm)}
+.proj.feat:has(.proj-status)::after{display:none}   /* the card's own Live/Active badge replaces the generic label */
+.how{max-width:1100px;margin:0 auto}
 .proj-status~.proj-type{padding-right:6.6rem}   /* keep the category clear of the status badge */
 </style>
 </head>
@@ -41,6 +43,13 @@
   <p class="sec-sub reveal">Real, working systems I've built and shipped — from a live esports tournament platform to a Discord AI bot with voice and music. Most link to the source; the private ones are one message away from a walkthrough.</p>
 </header>
 
+<div class="stat-band reveal" aria-label="JD Esports Arena in numbers">
+  <div class="stat"><div class="stat-num">300+</div><div class="stat-lbl">Players registered</div></div>
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-lbl">Squad sign-ups</div></div>
+  <div class="stat"><div class="stat-num">22</div><div class="stat-lbl">Events with sign-ups</div></div>
+  <div class="stat"><div class="stat-num">490+</div><div class="stat-lbl">Commits since July 2026</div></div>
+</div>
+
 <section class="block" style="padding-top:0">
   <div class="proj-grid">
 
@@ -52,6 +61,7 @@
       <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span><span class="pt">Android (TWA)</span></div>
       <span class="proj-related">🔗 Its Discord bot is <a href="#zulu-ai">ZULU AI</a>, below</span>
       <a href="https://jdesport.co.uk" target="_blank" rel="noopener" class="proj-link">Visit the live site →</a>
+      <a href="#how-it-works" class="proj-link">How the hard parts work ↓</a>
     </div>
 
     <div class="proj feat reveal" id="zulu-ai">
@@ -76,9 +86,17 @@
     <div class="proj reveal">
       <div class="proj-type">Android · Native</div>
       <h3 class="proj-t">JD Admin</h3>
-      <p class="proj-d">A 21 KB native Android app for the JD Arena staff, with no libraries. It forwards eSewa / Khalti "money received" alerts to a Supabase edge function so mods can approve point loads in seconds, opens the mod and admin tools in Chrome Custom Tabs, and updates itself from private, signed download links.</p>
+      <p class="proj-d">A 21 KB native Android app for the JD Arena staff, with no libraries. It forwards eSewa / Khalti "money received" alerts to a Supabase edge function so mods can approve point loads in seconds, gives the owner one button for every mod and admin tool (opened in Chrome Custom Tabs, so Google sign-in keeps working), and updates itself from private, signed download links.</p>
       <div class="proj-tags"><span class="pt">Java</span><span class="pt">Android SDK</span><span class="pt">Deno</span></div>
       <a href="#jd-esports-arena" class="proj-link">Part of JD Esports Arena ↑</a>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-type">Windows · Performance</div>
+      <h3 class="proj-t">JD Frag Engine</h3>
+      <p class="proj-d">A small Windows tool in C for JD Arena players running Free Fire on a PC emulator. It sets the FPS cap to match the screen, keeps the emulator on the fast cores of newer Intel laptops, and puts everything back when the match ends. It stays on the fair-play side by design: it never touches game or emulator memory and has no macros or aim assist. Updates are checked against a SHA-256 hash before they install.</p>
+      <div class="proj-tags"><span class="pt">C</span><span class="pt">Win32</span><span class="pt">Performance</span></div>
+      <a href="https://jdesport.co.uk/optimizer/" target="_blank" rel="noopener" class="proj-link">See the download page →</a>
     </div>
 
     <div class="proj reveal">
@@ -114,6 +132,30 @@
       <a href="https://github.com/AyerPrabin/prabin-ayer-portfolio" target="_blank" class="proj-link">GitHub →</a>
     </div>
 
+  </div>
+</section>
+
+<section class="block how" id="how-it-works">
+  <div class="sec-eyebrow reveal">JD Esports Arena</div>
+  <h2 class="sec-title reveal">How the <em>hard parts</em> work</h2>
+  <p class="sec-sub reveal">Players trust this site with real money, so most of the engineering went into making mistakes and cheating difficult.</p>
+  <div class="proj-grid">
+    <div class="proj reveal">
+      <h3 class="proj-t">Points follow real money</h3>
+      <p class="proj-d">A phone app forwards "money received" alerts to the backend. A mod can only add points when a player's screenshot matches a real payment: same amount, paid up to 3 hours before the request. Anything else goes to the owner.</p>
+    </div>
+    <div class="proj reveal">
+      <h3 class="proj-t">Prizes can't be paid twice</h3>
+      <p class="proj-d">Payouts run on the server, not in the browser. Only registered squads can be paid, never more than the prize pool, and each squad only once. Every payment is logged, and loads and withdrawals ask for the player's own PIN.</p>
+    </div>
+    <div class="proj reveal">
+      <h3 class="proj-t">Free cards resist farming</h3>
+      <p class="proj-d">One follow-route card per player and per TikTok account, ever. A database lock stops two mods approving the same account at the same moment, and only approved claims reserve a handle, so nobody can block someone else's.</p>
+    </div>
+    <div class="proj reveal">
+      <h3 class="proj-t">Alerts land on the right page</h3>
+      <p class="proj-d">A scheduled job spots each new TikTok video and alerts every player. Tapping an alert opens the exact page it is about, and the database only accepts video links in one strict format, so a bad row can't send people somewhere else.</p>
+    </div>
   </div>
 </section>
 

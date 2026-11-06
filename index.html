@@ -49,6 +49,7 @@
 .dot-reveal:hover{border-color:var(--gold-l);color:var(--gold-l)}
 .dot-reveal:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
 .dot-reveal .ring{width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;box-shadow:0 0 10px rgba(217,147,95,.8)}
+@media(min-width:901px) and (max-width:1600px){.hero-word{left:auto;right:3%;top:5.2rem;font-size:8.6vw;text-align:right}}
 @media(max-width:900px){
   #hero{grid-template-columns:1fr;padding:4.5rem 6% 0;gap:0}
   .hero-word{top:11svh;font-size:clamp(2.6rem,13.4vw,8rem)}
@@ -151,11 +152,20 @@
   <div class="sec-eyebrow reveal">Recent</div>
   <h2 class="sec-title reveal">Two logs, <em>one person</em></h2>
   <div class="stat-row reveal">
+    <div class="stat"><div class="stat-num">300+</div><div class="stat-label">Players registered on JD Esports Arena</div></div>
     <div class="stat"><div class="stat-num">0</div><div class="stat-label">Downtime incidents running JD Esports Arena live</div></div>
     <div class="stat warm"><div class="stat-num">150+</div><div class="stat-label">Guest events led at The Cocktail Bar, London</div></div>
     <div class="stat warm"><div class="stat-num">5.0★</div><div class="stat-label">TripAdvisor rating, held the whole run</div></div>
   </div>
   <div class="log-strip">
+    <div class="log-entry reveal">
+      <div class="log-meta"><span class="log-tag">build</span> Nov 2026</div>
+      <div class="log-title">Released <b>JD Frag Engine 6.2</b>, a Windows tool in C that tunes a PC for Free Fire on an emulator: the FPS cap follows the screen, and everything is put back when the match ends.</div>
+    </div>
+    <div class="log-entry reveal">
+      <div class="log-meta"><span class="log-tag">build</span> Nov 2026</div>
+      <div class="log-title">Added a <b>wallet PIN</b> to JD Esports Arena for loads and withdrawals, and phone alerts that open the exact page they are about.</div>
+    </div>
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span> Nov 2026</div>
       <div class="log-title"><b>ZULU AI Personal</b> is built to read new-shift alerts and apply for the good ones after my approval (being tested in ghost-tap mode), and now turns a screenshot of any shift booked in four agency apps into a calendar event with the pay and the address.</div>

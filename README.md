@@ -7,7 +7,7 @@ Personal portfolio site for Prabin Ayer. Static multi-page HTML site, no build s
 | Page | Content |
 |---|---|
 | `index.html` | Overview / landing page |
-| `computing.html` | Computing Science projects — real repos only (JD Esports Arena, ZULU AI, SafeStep, CPU/GPU Benchmark, jd-stock) |
+| `computing.html` | Computing Science projects — real repos only (JD Esports Arena, ZULU AI, JD Frag Engine, SafeStep, CPU/GPU Benchmark, jd-stock) |
 | `hospitality.html` | Hospitality experience and work history |
 | `skills.html` | Technical & professional skills — Computing Science and Hospitality |
 | `gallery.html` | Visual index of real projects and hospitality highlights |
