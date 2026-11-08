@@ -27,7 +27,8 @@ Every image slot degrades gracefully to a clean icon placeholder (see `imgFallba
 | `assets/img/safestep.jpg` | `gallery.html` — SafeStep card | ✅ real (live screenshot of the game) |
 | `assets/img/mixology.webp` | `gallery.html` — Mixology card | ✅ real photo |
 | `assets/img/fine-dining.webp` | `gallery.html` — Fine Dining card | ✅ real photo |
-| `assets/img/sky-garden.jpg` | `gallery.html` — Sky Garden Events card | ⬜ placeholder — needs a real photo |
+| `assets/img/tihar-portrait.webp`, `tihar-smile.webp` | `index.html` Nepal roots, `gallery.html` | ✅ real photos, cropped to Prabin only (no relatives or children), EXIF stripped |
+| `assets/img/tvs-showroom.webp`, `tvs-handover.webp` | `index.html`, `gallery.html`, `computing.html` (Jay Durga Automobiles ERP) | ✅ real photos of the family TVS dealership |
 
 ## Running locally
 

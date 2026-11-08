@@ -61,7 +61,7 @@
    code milestones (blue) with actual service milestones (copper) in one strip — makes
    the "both worlds" claim tangible instead of just asserting it in a tagline. ── */
 .log-section{padding:3.5rem 6% 1rem;max-width:800px;margin:0 auto}
-/* ── the numbers already exist in the log copy below (150+ events, 5.0★, zero downtime) —
+/* ── the numbers already exist in the log copy below (players, weekly actives, years, employers) —
    pulling them up front gives the section something to look at before you start reading,
    instead of five identical text lines being the whole first impression. ── */
 .stat-row{display:flex;gap:1.1rem;margin:2.2rem 0 .4rem}
@@ -112,6 +112,14 @@
 .index-row-d{font-size:.82rem;color:var(--body);text-align:right;max-width:340px}
 .index-row-arrow{font-family:'JetBrains Mono',monospace;color:var(--gold-m);flex-shrink:0}
 @media(max-width:600px){.index-row{flex-direction:column;align-items:flex-start;gap:.3rem}.index-row-d{text-align:left}}
+.roots-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:1.2rem;margin-top:2rem}
+.roots-card{position:relative;display:block;margin:0;overflow:hidden;border:1px solid var(--line);background:var(--panel);min-height:420px}
+.roots-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .6s}
+.roots-card:hover img{transform:scale(1.04)}
+.roots-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1rem .8rem;font-size:.78rem;color:#fff;background:linear-gradient(transparent,rgba(5,8,15,.85))}
+.roots-text{max-width:720px;margin:1.6rem 0 0;color:var(--body);line-height:1.8}
+@media(max-width:820px){.roots-grid{grid-template-columns:1fr}.roots-card{min-height:0;aspect-ratio:4/3}.roots-card:first-child{aspect-ratio:3/4}}
+
 </style>
 </head>
 <body>
@@ -135,8 +143,8 @@
   <div class="hero-inner">
     <p class="hero-eyebrow"><span class="dot"></span>London · funds his own degree · builds under pressure</p>
     <h1 class="hero-name reveal">Prabin Ayer</h1>
-    <p class="hero-tagline reveal"><span class="tech">Ships production code.</span> <span class="hosp">Runs a bar floor at 5.0★.</span></p>
-    <p class="hero-desc reveal">BSc Computing Science candidate at Coventry University London (2027), building a live tournament platform and its AI Discord bot in my spare time — funded entirely by bartending and warehouse shifts, not a loan.</p>
+    <p class="hero-tagline reveal"><span class="tech">Ships production code.</span> <span class="hosp">Serves a busy hotel restaurant floor.</span></p>
+    <p class="hero-desc reveal">BSc Computing Science candidate at Coventry University London (2027), building a live tournament platform and its AI Discord bot in my spare time — funded by hotel restaurant, bar and overnight retail shifts.</p>
     <div class="hero-cta reveal">
       <a href="contact.html" class="btn btn-gold">Hire Me</a>
       <a href="computing.html" class="btn btn-ghost">See My Work</a>
@@ -152,10 +160,10 @@
   <div class="sec-eyebrow reveal">Recent</div>
   <h2 class="sec-title reveal">Two logs, <em>one person</em></h2>
   <div class="stat-row reveal">
-    <div class="stat"><div class="stat-num">300+</div><div class="stat-label">Players registered on JD Esports Arena</div></div>
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Downtime incidents running JD Esports Arena live</div></div>
-    <div class="stat warm"><div class="stat-num">150+</div><div class="stat-label">Guest events led at The Cocktail Bar, London</div></div>
-    <div class="stat warm"><div class="stat-num">5.0★</div><div class="stat-label">TripAdvisor rating, held the whole run</div></div>
+    <div class="stat"><div class="stat-num">340+</div><div class="stat-label">Players registered on JD Esports Arena</div></div>
+    <div class="stat"><div class="stat-num">129</div><div class="stat-label">Players active on JD Arena in one week (Nov 2026)</div></div>
+    <div class="stat warm"><div class="stat-num">2 yrs</div><div class="stat-label">Customer-facing: restaurant, bars and retail</div></div>
+    <div class="stat warm"><div class="stat-num">5</div><div class="stat-label">London employers, from Leonardo Hotel to KOKO</div></div>
   </div>
   <div class="log-strip">
     <div class="log-entry reveal">
@@ -187,20 +195,20 @@
       <div class="log-title">Shipped voice for <b>ZULU AI</b> — joins a voice channel on command, pulls music from YouTube, reads out chat with text-to-speech.</div>
     </div>
     <div class="log-entry svc reveal">
-      <div class="log-meta"><span class="log-tag">service</span> Jan – Nov 2025</div>
-      <div class="log-title">Led the bar team for <b>150+ guest events</b> at The Cocktail Bar, London — held a 5.0 TripAdvisor rating the whole run.</div>
+      <div class="log-meta"><span class="log-tag">service</span> Feb 2026 – present</div>
+      <div class="log-title">Waiting staff at <b>Leonardo Hotel, London</b>: full table service across breakfast, lunch and evening sittings.</div>
     </div>
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span></div>
-      <div class="log-title">Running <b>JD Esports Arena</b> live — real player registration, admin brackets, row-level-security throughout, zero downtime incidents.</div>
+      <div class="log-title">Running <b>JD Esports Arena</b> live: 340+ players, admin brackets, row-level security throughout. When a bandwidth limit took it offline in Nov 2026, I found the cause and cut the heaviest call from 937 KB to a few KB.</div>
     </div>
     <div class="log-entry svc reveal">
-      <div class="log-meta"><span class="log-tag">service</span> Nov 2025 – present</div>
-      <div class="log-title">Event logistics across London — <b>Leonardo Royal St Paul's</b>, <b>Sky Garden</b>, plus retail/inventory ops at Tesco.</div>
+      <div class="log-meta"><span class="log-tag">service</span> 2025 – present</div>
+      <div class="log-title">Barback across London venues incl. <b>KOKO</b> and <b>Fuller's</b>, plus overnight replenishment at <b>Tesco</b> and <b>Sainsbury's</b>.</div>
     </div>
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span></div>
-      <div class="log-title">Started <b>jd-stock</b> — a Next.js/TypeScript inventory system for the family motor showroom.</div>
+      <div class="log-title">Built the <b>Jay Durga Automobiles ERP</b> for my family's TVS dealership and workshop in Nepal: job cards, sales, stock, payroll and SMS, plus <b>jd-stock</b> for inventory.</div>
     </div>
   </div>
 </section>
@@ -231,13 +239,25 @@
       <div class="about-caption">Tower Bridge, London</div>
     </div>
     <div class="about-wrap reveal" data-anim="right">
-      <p class="reveal">I'm a Computing Science student who blends technical precision with real-world service experience. My degree is entirely self-funded — I manage a bar floor and pull warehouse shifts to pay for it, which means every hour of coding time is one I chose over sleep or money, not a given.</p>
+      <p class="reveal">I'm a Computing Science student who blends technical precision with real-world service experience. My degree is entirely self-funded — I work hotel restaurant, bar and overnight retail shifts to pay for it, which means every hour of coding time is one I chose over sleep or money, not a given.</p>
       <p class="pull reveal">The best technology is the kind that serves people effectively and elegantly — that's a hospitality standard as much as an engineering one.</p>
       <p class="reveal">Hospitality taught me to read a room, de-escalate fast, and stay graceful when a service rail is on fire. Those instincts show up directly in how I build software: calm under a production incident, precise about what actually matters to the person on the other end.</p>
       <div class="skills-t">Currently Building</div>
       <div class="skill-tags"><span class="skill-tag">JD Esports Arena</span><span class="skill-tag">ZULU AI</span><span class="skill-tag">Python</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Supabase</span><span class="skill-tag">Discord.py</span></div>
     </div>
   </div>
+</section>
+
+<div class="divider reveal"><span>◆</span></div>
+
+<section class="block" id="roots">
+  <div class="sec-eyebrow reveal">Where I'm From</div>
+  <h2 class="sec-title reveal">Nepal <em>roots</em></h2>
+  <div class="roots-grid">
+    <figure class="roots-card reveal"><img src="assets/img/tihar-portrait.webp" width="550" height="730" alt="Prabin Ayer with tika at a family festival in Nepal" loading="lazy" ><figcaption>Tihar with family, Nepal</figcaption></figure>
+    <figure class="roots-card wide reveal"><img src="assets/img/tvs-showroom.webp" width="1200" height="798" alt="TVS showroom of Jay Durga Automobiles" loading="lazy" ><figcaption>Jay Durga Automobiles, the family TVS dealership I write software for</figcaption></figure>
+  </div>
+  <p class="roots-text reveal">My family runs a TVS motorbike dealership and workshop in Nepal. Its records lived in paper and Excel sheets, so I built it an ERP for job cards, sales, stock and payroll. It's where I learned that software has to fit how real people already work.</p>
 </section>
 
 <div class="divider reveal"><span>◆</span></div>
@@ -253,7 +273,7 @@
     </a>
     <a href="hospitality.html" class="index-row reveal">
       <span class="index-row-t">Hospitality</span>
-      <span class="index-row-d">Lead bartender, fine dining, and event logistics</span>
+      <span class="index-row-d">Waiting staff, barback, bartending and retail</span>
       <span class="index-row-arrow">→</span>
     </a>
     <a href="skills.html" class="index-row reveal">

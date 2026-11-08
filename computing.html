@@ -19,6 +19,7 @@
 .proj.feat:has(.proj-status)::after{display:none}   /* the card's own Live/Active badge replaces the generic label */
 .how{max-width:1100px;margin:0 auto}
 .proj-status~.proj-type{padding-right:6.6rem}   /* keep the category clear of the status badge */
+.proj-photo{width:100%;height:auto;flex:none;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);margin:.4rem 0 1rem;display:block}
 </style>
 </head>
 <body>
@@ -83,6 +84,16 @@
       <a href="contact.html" class="proj-link">Private repo: ask for a walkthrough →</a>
     </div>
 
+    <div class="proj feat reveal" id="jd-automobiles">
+      <span class="proj-status wip">In Progress</span>
+      <div class="proj-type">Full-Stack · Business ERP</div>
+      <h3 class="proj-t">Jay Durga Automobiles ERP</h3>
+      <img class="proj-photo" src="assets/img/tvs-handover.webp" width="1200" height="798" alt="A scooter handover at the Jay Durga Automobiles TVS showroom" loading="lazy">
+      <p class="proj-d">The operations system for my family's authorised TVS dealership and multi-brand workshop in Nepal. Job cards with separate repair and prep-cost tracks, bike sales and finance, customer dues (khata), cash book, stock, staff attendance and month-end payroll, a calling desk and a loyalty scheme, with SMS reminders through one aggregator. Years of Excel history (sales, enquiries, workshop retail, AMC) are imported so nothing is lost. Built multi-tenant from day one, so a second business unit can plug into the same core.</p>
+      <div class="proj-tags"><span class="pt">TypeScript</span><span class="pt">Express</span><span class="pt">PostgreSQL</span><span class="pt">React (Vite)</span><span class="pt">JWT + PIN step-up</span></div>
+      <a href="contact.html" class="proj-link">Private repo: ask for a walkthrough →</a>
+    </div>
+
     <div class="proj reveal">
       <div class="proj-type">Android · Native</div>
       <h3 class="proj-t">JD Admin</h3>
@@ -121,7 +132,7 @@
       <h3 class="proj-t">jd-stock</h3>
       <p class="proj-d">An inventory and sales system for the family motor showroom: stock, a sales history page, and customer and finance records that only the owner role can read.</p>
       <div class="proj-tags"><span class="pt">TypeScript</span><span class="pt">Next.js</span><span class="pt">Supabase</span></div>
-      <a href="https://github.com/AyerPrabin/jd-stock" target="_blank" class="proj-link">GitHub →</a>
+      <a href="contact.html" class="proj-link">Private repo: ask for a walkthrough →</a>
     </div>
 
     <div class="proj reveal">
