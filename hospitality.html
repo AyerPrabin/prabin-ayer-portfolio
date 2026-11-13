@@ -32,6 +32,19 @@
 .cta-box{max-width:760px;margin:0 auto;background:var(--panel);border:1px solid var(--gold-m);padding:3rem;text-align:center}
 .cta-box p{color:var(--body);margin:1rem 0 1.6rem}
 </style>
+<style>
+.venue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:1.4rem}
+.venue{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.venue img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:saturate(.85) contrast(1.05)}
+.venue figcaption{padding:.7rem .8rem .8rem;display:grid;gap:2px}
+.venue b{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--cream);font-weight:600}
+.venue span{color:var(--gold);font-size:.78rem;letter-spacing:.04em}
+.venue small{color:var(--body);font-size:.66rem;margin-top:4px}
+.venue small a{color:var(--body)}
+.venue-note{color:var(--body);max-width:68ch;margin:.4rem 0 0}
+.venue-note.small{font-size:.75rem;margin-top:1rem}
+@media(max-width:900px){.venue-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+</style>
 </head>
 <body>
 <div class="scroll-progress"><div class="scroll-progress-bar" id="sp"></div></div>
@@ -55,7 +68,7 @@
     <div class="img-fallback"><span class="fb-icon">◈</span><span class="fb-label">Hospitality</span></div>
   </div>
   <h1 class="sec-title reveal">Art in the Glass.<br>Service in the Heart.</h1>
-  <p class="reveal">Hospitality all-rounder with two years of customer-facing experience across restaurant service, bars and supermarket retail. Calm under pressure, quick to pick up a new floor and a new team, and comfortable on breakfast, lunch or late evening service.</p>
+  <p class="reveal">Hospitality all-rounder with two years of customer-facing experience in London hotels, restaurants and bars, from The Savoy and The Ned to Nobu and Grosvenor House, plus supermarket retail. Calm under pressure, quick to pick up a new floor and a new team, and comfortable on breakfast, lunch or late evening service.</p>
 </section>
 
 <section class="block" style="padding-top:1rem">
@@ -72,6 +85,16 @@
         <li>Breakfast, lunch and evening sittings, working with kitchen and bar to keep tickets moving at peak covers</li>
         <li>Handling guest questions and complaints calmly at the table</li>
         <li>Checking dietary needs and allergies and passing them accurately to the kitchen</li>
+      </ul>
+    </div>
+    <div class="job-card reveal">
+      <span class="job-date">2025 — Present</span>
+      <div class="job-title">Bartender, Mixologist, Waiter &amp; Barback</div>
+      <div class="job-place">Agency shifts at premier London venues</div>
+      <ul class="job-list">
+        <li>Bartender and mixologist shifts at The Savoy, Sky Garden and One Aldwych</li>
+        <li>Shifts at Nobu Hotel, The Ned and Grosvenor House in Mayfair</li>
+        <li>Waiter and barback shifts at Leonardo Royal St Paul's, 116 Pall Mall and COMO The Halkin</li>
       </ul>
     </div>
     <div class="job-card reveal">
@@ -118,6 +141,24 @@
     <div><span class="job-date">Languages</span>English · Hindi · Nepali</div>
     <div><span class="job-date">Availability</span>Fully flexible: days, evenings, nights and weekends. Available immediately.</div>
   </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="divider reveal"><span>◆</span></div>
+  <div class="sec-eyebrow reveal">Venues</div>
+  <h2 class="sec-title reveal">Where I've <em>Worked</em></h2>
+  <p class="venue-note reveal">Shifts through staffing agencies at some of London's best-known hotels, restaurants and bars. Also: Leonardo Hotel and Leonardo Royal St Paul's, 116 Pall Mall, Fuller's pubs, The Cocktail Bar, Tesco and Sainsbury's.</p>
+  <div class="venue-grid">
+    <figure class="venue reveal"><img src="assets/img/venues/savoy.webp" alt="The Savoy, Strand" loading="lazy" width="720" height="540"><figcaption><b>The Savoy</b><span>Strand</span><small>Photo: N Chadwick, <a href="https://commons.wikimedia.org/wiki/File:The_Savoy_Hotel_-_geograph.org.uk_-_7752638.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/nobu.webp" alt="Nobu Hotel, London" loading="lazy" width="720" height="540"><figcaption><b>Nobu Hotel</b><span>London</span><small>Photo: Matt Brown, <a href="https://commons.wikimedia.org/wiki/File:NoBu_Hotel_in_Shoreditch.jpg" target="_blank" rel="noopener">CC BY 2.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/ned.webp" alt="The Ned, City of London" loading="lazy" width="720" height="540"><figcaption><b>The Ned</b><span>City of London</span><small>Photo: Boubloub, <a href="https://commons.wikimedia.org/wiki/File:TheNed_exterior.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/grosvenor.webp" alt="Grosvenor House, Park Lane, Mayfair" loading="lazy" width="720" height="540"><figcaption><b>Grosvenor House</b><span>Park Lane, Mayfair</span><small>Photo: Dhowes9, <a href="https://commons.wikimedia.org/wiki/File:Grosvenor_House_Hotel,_Park_Lane.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/skygarden.webp" alt="Sky Garden, 20 Fenchurch Street" loading="lazy" width="720" height="540"><figcaption><b>Sky Garden</b><span>20 Fenchurch Street</span><small>Photo: Colin, <a href="https://commons.wikimedia.org/wiki/File:The_Sky_Garden.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/aldwych.webp" alt="One Aldwych, Covent Garden" loading="lazy" width="720" height="540"><figcaption><b>One Aldwych</b><span>Covent Garden</span><small>Photo: Nick Anderson, <a href="https://commons.wikimedia.org/wiki/File:One_Aldwych.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/halkin.webp" alt="COMO The Halkin, Belgravia" loading="lazy" width="720" height="540"><figcaption><b>COMO The Halkin</b><span>Belgravia</span><small>Photo: Ewan-M, <a href="https://commons.wikimedia.org/wiki/File:COMO_The_Halkin,_Belgravia,_SW1.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figcaption></figure>
+    <figure class="venue reveal"><img src="assets/img/venues/koko.webp" alt="KOKO, Camden" loading="lazy" width="720" height="540"><figcaption><b>KOKO</b><span>Camden</span><small>Photo: Philafrenzy, <a href="https://commons.wikimedia.org/wiki/File:Camden_Palace_Theatre,_now_Koko.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figcaption></figure>
+  </div>
+  <p class="venue-note small reveal">Venue photos are of the buildings, from Wikimedia Commons, used under the licences linked under each one. They are not my photos.</p>
 </section>
 
 <section class="block" style="padding-top:0">
