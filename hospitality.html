@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 <style>
 .logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
 .hosp-hero{position:relative;padding:10rem 6% 4rem;text-align:center;overflow:hidden}
@@ -21,7 +21,7 @@
 .timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
 @media(max-width:820px){.timeline{grid-template-columns:1fr}}
 .job-card{background:var(--panel);border:1px solid var(--line);padding:1.6rem;transition:all .25s}
-.job-card:hover{border-color:var(--gold-m);transform:translateY(-4px)}
+@media (hover:hover){.job-card:hover{border-color:var(--gold-m);transform:translateY(-4px)}}
 .job-date{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-l);margin-bottom:.4rem;display:block}
 .job-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.3rem}
 .job-place{color:var(--gold-l);font-size:.82rem;margin-bottom:.9rem}

@@ -104,14 +104,25 @@ async function start() {
   // where the head is on screen, so it looks AT the pointer (not just left/right of the page)
   const look = { x: 0, y: 0, active: false }, head = { yaw: 0, pitch: 0 }, torso = { yaw: 0 };
   let lastMove = 0;
-  addEventListener('pointermove', e => {
-    if (e.pointerType !== 'mouse') return;
+  function lookAt(e) {
     const r = stage.getBoundingClientRect();
     const hx = r.left + W / 2 + (HEAD.x - GW / 2) * S, hy = r.top + H / 2 - body.position.y - (GH / 2 - HEAD.y) * S;
     look.x = (e.clientX - hx) / Math.max(320, innerWidth * .45);
     look.y = (e.clientY - hy) / Math.max(260, innerHeight * .55);
     lastMove = performance.now();
+  }
+  // mouse: follow the cursor; touch/pen: glance at where the finger lands or drags
+  addEventListener('pointermove', e => { if (e.pointerType === 'mouse' || e.pressure > 0) lookAt(e); }, { passive: true });
+  addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') lookAt(e); }, { passive: true });
+  // phones that report tilt without a permission prompt (Android): tilting the phone turns the head
+  let tilt0 = null;
+  addEventListener('deviceorientation', e => {
+    if (e.gamma == null || e.beta == null || (performance.now() - lastMove < 2500 && !look.tilt)) return;
+    tilt0 ??= { g: e.gamma, b: e.beta };
+    look.x = clamp((e.gamma - tilt0.g) / 25, -1, 1); look.y = clamp((e.beta - tilt0.b) / 30, -1, 1);
+    look.tilt = true; lastMove = performance.now();
   }, { passive: true });
+  addEventListener('pointerdown', () => { look.tilt = false; }, { passive: true, capture: true });
 
   let revealed = false, sc = reduce ? 0 : 1, visible = true, raf = 0;
   if (btn) btn.hidden = false;
