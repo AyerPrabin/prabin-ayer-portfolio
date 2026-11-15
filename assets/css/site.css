@@ -74,6 +74,7 @@ main, .block { padding: 8rem 6% 5rem; max-width: 1100px; margin: 0 auto; }
 .reveal.vis { opacity: 1; transform: none; }
 .reveal[data-anim="left"] { transform: translateX(-46px); }
 .reveal[data-anim="right"] { transform: translateX(46px); }
+@media (max-width: 760px) { .reveal[data-anim] { transform: translateY(34px); } }   /* no sideways start on phones: it widens the page */
 .reveal.vis[data-anim] { transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { transition: opacity .4s ease; transform: none; } }
 

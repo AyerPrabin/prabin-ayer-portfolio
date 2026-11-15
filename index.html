@@ -12,8 +12,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 <noscript><style>.dot-photo{opacity:1}</style></noscript>
+<link rel="stylesheet" href="assets/css/intro.css?v=1">
+<script>/* opening title card: first visit of the session only, never with reduced motion (assets/js/intro.js) */
+window.jdIntro=new Promise(function(r){window.jdIntroDone=r});
+try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!sessionStorage.getItem('pa_intro')&&!/bot|crawl|spider|lighthouse|headless/i.test(navigator.userAgent)){sessionStorage.setItem('pa_intro','1');document.documentElement.classList.add('intro-on')}}catch(e){}
+if(!document.documentElement.classList.contains('intro-on'))window.jdIntroDone();
+else setTimeout(function(){window.jdIntroDone();document.documentElement.classList.remove('intro-on')},7000);/* failsafe if intro.js never runs */</script>
 <style>
 .logo-badge{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:var(--gold-l);font-size:.78rem;flex-shrink:0}
 
@@ -116,6 +122,12 @@
 </style>
 </head>
 <body>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-bar t"></div><div class="intro-bar b"></div><div class="intro-flare"></div>
+  <div class="intro-c"><div class="intro-pre"></div><div class="intro-name">Prabin Ayer</div><div class="intro-sub"><b>Code</b> · <em>Service</em> · Pressure</div></div>
+  <button type="button" class="intro-skip" tabindex="-1">Skip ›</button>
+</div>
+<script src="assets/js/intro.js?v=1"></script>
 <div class="scroll-progress"><div class="scroll-progress-bar" id="sp"></div></div>
 
 <nav>
@@ -283,7 +295,7 @@
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script src="assets/js/site.js"></script>
 <script type="module" src="assets/js/dot-hero.js?v=7"></script>
-<script>setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)</script>
+<script>window.jdIntro.then(function(){setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)})</script>
 <script src="assets/js/chat-widget.js"></script>
 </body>
 </html>

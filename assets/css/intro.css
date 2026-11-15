@@ -1,0 +1,53 @@
+/* Cinematic opening (assets/js/intro.js): letterbox bars, a typed studio line, the name as a
+   gold title card with a light glint, then the bars open on the hero and the dot portrait
+   assembles. Once per visit; any tap, key or scroll skips it; never with reduced motion. */
+.intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#030304;color:var(--cream);overflow:hidden;cursor:pointer;
+  transition:opacity .9s cubic-bezier(.7,0,.3,1),visibility 0s .9s}
+html:not(.intro-on) .intro{display:none}
+.intro.out{opacity:0;visibility:hidden;pointer-events:none}
+.intro::before{content:"";position:absolute;inset:-50%;opacity:.07;pointer-events:none;animation:grain .5s steps(4) infinite;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.intro::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.85) 100%)}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+
+.intro-bar{position:fixed;left:0;right:0;height:12svh;background:#000;z-index:3;transition:transform 1s cubic-bezier(.8,0,.2,1)}
+.intro-bar.t{top:0;transform-origin:top}.intro-bar.b{bottom:0;transform-origin:bottom}
+.intro.open .intro-bar{transform:scaleY(0)}
+
+.intro-flare{position:absolute;top:50%;left:-30%;width:60%;height:2px;z-index:1;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(255,214,150,.9),#fff,rgba(255,214,150,.9),transparent);box-shadow:0 0 30px 6px rgba(255,170,80,.45);filter:blur(.4px)}
+.intro.s2 .intro-flare{animation:flare 1.3s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes flare{0%{left:-60%;opacity:0}20%{opacity:1}100%{left:110%;opacity:0}}
+
+.intro-c{position:relative;z-index:2;text-align:center;padding:0 16px}
+.intro-pre{font:500 clamp(.62rem,1.6vw,.8rem)/1.6 'JetBrains Mono',monospace;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-l);
+  min-height:1.6em;opacity:0;transition:opacity .5s}
+.intro.s1 .intro-pre{opacity:.9}.intro.s2 .intro-pre{opacity:0}
+.intro-pre i{font-style:normal;animation:caret .7s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+
+.intro-name{margin:.6rem 0 0;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(2.6rem,11vw,9.5rem);line-height:.95;letter-spacing:.5em;white-space:nowrap;
+  text-transform:uppercase;opacity:0;filter:blur(14px);transform:scale(1.06);
+  background:linear-gradient(100deg,#7a5a24 0%,#d9b06a 30%,#fff3d6 46%,#d9b06a 58%,#8a6428 100%);background-size:240% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:opacity 1.2s ease,filter 1.4s ease,letter-spacing 2.4s cubic-bezier(.16,1,.3,1),transform 2.4s cubic-bezier(.16,1,.3,1)}
+.intro.s2 .intro-name{opacity:1;filter:blur(0);letter-spacing:.04em;transform:scale(1)}
+.intro.s3 .intro-name{animation:glint 1.4s ease forwards}
+.intro.open .intro-name{transform:scale(1.25);opacity:0;filter:blur(8px);transition:transform 1s cubic-bezier(.7,0,.3,1),opacity .8s,filter .8s}
+@keyframes glint{from{background-position:100% 0}to{background-position:-40% 0}}
+
+.intro-sub{margin-top:1.1rem;font:500 clamp(.6rem,1.5vw,.78rem)/1 'JetBrains Mono',monospace;letter-spacing:.5em;text-transform:uppercase;color:var(--cream);opacity:0;
+  transition:opacity .8s}
+.intro.s3 .intro-sub{opacity:.7}.intro.open .intro-sub{opacity:0}
+.intro-sub b{font-weight:500;color:var(--tech)}.intro-sub em{font-style:normal;color:var(--warm-l)}
+
+.intro-skip{position:fixed;right:16px;bottom:calc(12svh + 14px);z-index:4;background:none;border:1px solid rgba(217,176,106,.4);border-radius:999px;color:var(--cream);
+  font:500 .66rem/1 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase;padding:.55rem .9rem;cursor:pointer;opacity:.7}
+.intro-skip:hover,.intro-skip:focus-visible{opacity:1;border-color:var(--gold-l);outline:none}
+
+/* hero after the intro: the name catches the same light once, then on hover */
+.hero-name{background:linear-gradient(100deg,#fff 0%,#fff 40%,#ffe0a3 50%,#fff 60%,#fff 100%);background-size:260% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-name.glint{animation:glint 1.6s ease .2s both}
+.hero-name:hover{animation:glint 1.2s ease both}
+@media (prefers-reduced-motion: reduce){.hero-name.glint,.hero-name:hover{animation:none}}

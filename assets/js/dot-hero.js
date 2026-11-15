@@ -58,11 +58,11 @@ async function start() {
   const mat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     uniforms: { uScale: { value: 1 }, uSize: { value: 2 }, uTime: { value: 0 }, uScatter: { value: 1 }, uWobble: { value: reduce ? 0 : 1 },
-      uHead: { value: new THREE.Matrix3() }, uPivot: { value: pivot } },
+      uHead: { value: new THREE.Matrix3() }, uPivot: { value: pivot }, uBeam: { value: -999 } },
     vertexShader: `
       attribute float lum, hw; attribute vec3 seed;
-      uniform float uScale, uSize, uTime, uScatter, uWobble; uniform mat3 uHead; uniform vec3 uPivot;
-      varying float vL, vA;
+      uniform float uScale, uSize, uTime, uScatter, uWobble; uniform mat3 uHead; uniform vec3 uPivot; uniform float uBeam;
+      varying float vL, vA, vB;
       void main(){
         vec3 p = position;
         p = mix(p, uPivot + uHead * (p - uPivot), hw);                    // the head turns on the neck
@@ -74,16 +74,18 @@ async function start() {
         gl_Position = projectionMatrix * mv;
         gl_PointSize = uSize * (.75 + lum*.7) * (1. - r*.55);
         vL = lum;
+        vB = exp(-pow((position.y - uBeam) / 7., 2.));                   // scan line that sweeps up once the bust lands
         vA = smoothstep(-${(GH / 2).toFixed(1)}, -${(GH / 2 - 34).toFixed(1)}, position.y) * (1. - r*.85);   // soft cut at the bottom
       }`,
     fragmentShader: `
-      varying float vL, vA;
+      varying float vL, vA, vB;
       void main(){
         vec2 c = gl_PointCoord - .5; float d = dot(c, c);
         if (d > .25) discard;
         vec3 ember = vec3(.62,.08,.02), hot = vec3(1.,.32,.08), spark = vec3(1.,.74,.45);
         vec3 col = mix(ember, hot, smoothstep(.15,.6,vL)); col = mix(col, spark, smoothstep(.75,1.,vL));
-        gl_FragColor = vec4(col, vA * (1. - d*3.2) * (.55 + vL*.65));
+        col = mix(col, vec3(1.,.93,.78), vB*.85);
+        gl_FragColor = vec4(col, vA * (1. - d*3.2) * (.55 + vL*.65 + vB*.9));
       }`,
   });
   body.add(new THREE.Points(geo, mat));
@@ -124,7 +126,8 @@ async function start() {
   }, { passive: true });
   addEventListener('pointerdown', () => { look.tilt = false; }, { passive: true, capture: true });
 
-  let revealed = false, sc = reduce ? 0 : 1, visible = true, raf = 0;
+  let revealed = false, sc = reduce ? 0 : 1, visible = true, raf = 0, go = false, beamAt = -1;
+  (window.jdIntro || Promise.resolve()).then(() => { go = true; loop(); });
   if (btn) btn.hidden = false;
   btn?.addEventListener('click', () => {
     revealed = !revealed;
@@ -151,7 +154,11 @@ async function start() {
     body.rotation.y = torso.yaw; body.rotation.x = head.pitch * .12;
     m4.makeRotationFromEuler(eul.set(head.pitch * .85, head.yaw * .78, -head.yaw * .05, 'YXZ'));
     mat.uniforms.uHead.value.setFromMatrix4(m4);
-    sc += ((revealed ? 1 : 0) - sc) * (reduce ? 1 : revealed ? .05 : .035);
+    const prev = sc;
+    if (go) sc += ((revealed ? 1 : 0) - sc) * (reduce ? 1 : revealed ? .05 : .035);
+    if (!reduce && !revealed && prev >= .12 && sc < .12) beamAt = t;          // the bust has landed
+    const bt = beamAt < 0 ? 9 : (t - beamAt) / 1.6;
+    mat.uniforms.uBeam.value = bt < 1 ? -GH / 2 - 20 + bt * (GH + 40) : -999;
     mat.uniforms.uScatter.value = sc; mat.uniforms.uTime.value = t;
     renderer.render(scene, cam);
     const settled = reduce || (revealed && sc > .995);
