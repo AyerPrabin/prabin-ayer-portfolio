@@ -34,6 +34,15 @@
 .avail-row{display:flex;gap:2rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--line);flex-wrap:wrap;justify-content:center}
 .avail-item{display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--body)}
 .dot-live{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.hire{max-width:880px;margin:0 auto;padding:2rem 2.2rem;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold)}
+.hire-facts{display:grid;gap:0;margin:0}
+.hire-facts div{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.hire-facts div:last-child{border-bottom:0}
+.hire-facts dt{color:var(--gold-l);font-weight:500;font-size:.88rem}
+.hire-facts dd{margin:0;color:var(--cream);font-size:.95rem;line-height:1.55}
+.hire-facts a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--gold-m);text-underline-offset:3px}
+.hire-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+@media(max-width:600px){.hire{padding:1.4rem 1.1rem}.hire-facts div{grid-template-columns:1fr;gap:.2rem}}
 </style>
 </head>
 <body>
@@ -53,9 +62,27 @@
 </nav>
 
 <header class="page-hero" style="text-align:center">
-  <h1 class="sec-title reveal" style="margin-left:auto;margin-right:auto">Let's Build Something <em>Together</em></h1>
-  <p class="sec-sub reveal" style="margin-left:auto;margin-right:auto">Whether it's a technical collaboration, a high-pressure hospitality project, or just a quick hello — I'm always open to new opportunities.</p>
+  <h1 class="sec-title reveal" style="margin-left:auto;margin-right:auto">Hiring a graduate engineer for 2027?</h1>
+  <p class="sec-sub reveal" style="margin-left:auto;margin-right:auto">Everything a recruiter needs is in this box. For anything else, use the form below.</p>
 </header>
+
+<section class="block" style="padding-top:0;padding-bottom:2.5rem">
+  <div class="hire reveal">
+    <dl class="hire-facts">
+      <div><dt>Role</dt><dd>Graduate or junior software engineer: backend, data or full stack</dd></div>
+      <div><dt>Available</dt><dd>Full time from August 2027 (degree ends 30 July 2027)</dd></div>
+      <div><dt>Right to work</dt><dd>UK Student visa until graduation. I will need Skilled Worker sponsorship after that.</dd></div>
+      <div><dt>Location</dt><dd>London. Happy to relocate anywhere in the UK.</dd></div>
+      <div><dt>Degree</dt><dd>BSc Computing Science, CU London: 71% First Class average at Level 5</dd></div>
+      <div><dt>Proof</dt><dd><a href="https://jdesport.co.uk" target="_blank" rel="noopener">jdesport.co.uk</a>, live with <b data-stat="players">450+</b> players, plus <a href="computing.html#write-ups">design doc, post-mortem and load test</a></dd></div>
+    </dl>
+    <div class="hire-cta">
+      <a href="assets/Prabin_Ayer_CV.pdf" class="btn btn-gold" download>Download CV (PDF, 1 page)</a>
+      <a href="mailto:ayerprabin95@gmail.com?subject=Graduate%20software%20engineer%20role" class="btn btn-ghost">Email me</a>
+      <a href="https://www.linkedin.com/in/ayerprabin/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
 
 <section class="block" style="padding-top:0">
   <div class="contact-grid">
@@ -94,7 +121,7 @@
         <div class="field">
           <label>Subject</label>
           <select name="subject">
-            <option>Technical Collaboration</option><option>Hospitality Project</option><option>General Inquiry</option><option>Other</option>
+            <option>Graduate role or interview</option><option>Technical collaboration</option><option>General question</option><option>Other</option>
           </select>
         </div>
         <div class="field">
