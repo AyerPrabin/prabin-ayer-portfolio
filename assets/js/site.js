@@ -70,3 +70,20 @@ function imgFallback(img) {
   window.addEventListener('resize', onScroll);
   onScroll();
 })();
+
+/* Live JD Arena totals: stats.json is refreshed daily by a script that reads the
+   database once. The numbers in the HTML are the fallback if this fetch fails. */
+(function () {
+  const els = document.querySelectorAll('[data-stat]');
+  if (!els.length || !window.fetch) return;
+  fetch('stats.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(s => {
+      if (!s) return;
+      els.forEach(el => {
+        const v = s[el.dataset.stat];
+        if (typeof v === 'string' && /^\d{2,5}\+$/.test(v)) el.textContent = v;
+      });
+    })
+    .catch(() => {});
+})();

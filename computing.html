@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#05080f">
-<meta name="description" content="Prabin Ayer's Computing Science projects — JD Esports Arena, ZULU AI, and more.">
+<meta name="description" content="Prabin Ayer's Computing Science projects — JD Esports Arena, JD Admin, Jay Durge Automobiles ERP and more.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2305080f' stroke='%23c9a84c' stroke-width='4'/><text x='50' y='68' text-anchor='middle' font-family='Georgia' font-size='48' font-weight='700' fill='%23c9a84c'>PA</text></svg>">
 <title>Computing Science | Prabin Ayer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,12 +40,12 @@
 <header class="page-hero">
   <div class="sec-eyebrow reveal">Portfolio</div>
   <h1 class="sec-title reveal">My Computing Science <em>Projects</em></h1>
-  <p class="sec-sub reveal">Real, working systems I've built and shipped — from a live esports tournament platform to a Discord AI bot with voice and music. Most link to the source; the private ones are one message away from a walkthrough.</p>
+  <p class="sec-sub reveal">Real, working systems I've built and shipped — from a live esports tournament platform and its payment-relay Android app to an ERP for my family's dealership. Most link to the source; the private ones are one message away from a walkthrough.</p>
 </header>
 
 <div class="stat-band reveal" aria-label="JD Esports Arena in numbers">
-  <div class="stat"><div class="stat-num">340+</div><div class="stat-lbl">Players registered</div></div>
-  <div class="stat"><div class="stat-num">200+</div><div class="stat-lbl">Squad sign-ups</div></div>
+  <div class="stat"><div class="stat-num" data-stat="players">450+</div><div class="stat-lbl">Players registered</div></div>
+  <div class="stat"><div class="stat-num" data-stat="signups">200+</div><div class="stat-lbl">Squad sign-ups</div></div>
   <div class="stat"><div class="stat-num">22</div><div class="stat-lbl">Events with sign-ups</div></div>
   <div class="stat"><div class="stat-num">490+</div><div class="stat-lbl">Commits since July 2026</div></div>
 </div>
@@ -59,28 +59,8 @@
       <h3 class="proj-t">JD Esports Arena</h3>
       <p class="proj-d">A live Free Fire tournament platform for the community back home in Nepal, now with its own Android app. Players register squads, hold a points wallet topped up through eSewa and Khalti, challenge each other in Clash Squad for points (mods settle disputed results from screenshots sent in the match chat), find teammates (ZULU AI groups same-language players into a squad every week) and chat with photos and video. Staff run events from a moderator panel that matches each point load to the real payment. Supabase backend with row-level security throughout.</p>
       <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span><span class="pt">Android (TWA)</span></div>
-      <span class="proj-related">🔗 Its Discord bot is <a href="#zulu-ai">ZULU AI</a>, below</span>
       <a href="https://jdesport.co.uk" target="_blank" rel="noopener" class="proj-link">Visit the live site →</a>
       <a href="#how-it-works" class="proj-link">How the hard parts work ↓</a>
-    </div>
-
-    <div class="proj feat reveal" id="zulu-ai">
-      <span class="proj-status live">Active</span>
-      <div class="proj-type">AI · Discord Bot</div>
-      <h3 class="proj-t">ZULU AI</h3>
-      <p class="proj-d">A tactical AI assistant and the Discord bot for JD Esports Arena — tournament schedules, live standings, and a multi-provider AI fallback for open Q&amp;A. Recently added voice: joins a voice channel on command, plays music pulled from YouTube, and reads out designated chat channels with text-to-speech.</p>
-      <div class="proj-tags"><span class="pt">Python</span><span class="pt">discord.py</span><span class="pt">Flask</span><span class="pt">LLM orchestration</span></div>
-      <span class="proj-related">🔗 Built for <a href="#jd-esports-arena">JD Esports Arena</a>, above</span>
-      <a href="https://github.com/AyerPrabin/Zulu-Ai" target="_blank" class="proj-link">GitHub →</a>
-    </div>
-
-    <div class="proj feat reveal" id="zulu-personal">
-      <span class="proj-status wip">In Progress</span>
-      <div class="proj-type">Automation · Python + Android</div>
-      <h3 class="proj-t">ZULU AI Personal</h3>
-      <p class="proj-d">A personal operations system that runs agency shift work around university. An Android agent is built to read new-shift alerts from the staffing apps, score each offer against lectures, rest rules, travel time and real take-home pay, and apply for the good ones by tapping Accept, only after a human approval gate, starting in a "ghost-tap" mode that never presses anything, with a two-tier kill switch. Shifts booked by hand in any of four agency apps are read from a screenshot with offline OCR and land in Google / Samsung Calendar with the pay in the title and the full address for maps. Synced Google and Outlook calendars, an encrypted WebSocket bridge, local Whisper voice control and a live dashboard on top. 820+ tests, mypy strict.</p>
-      <div class="proj-tags"><span class="pt">Python</span><span class="pt">Kotlin</span><span class="pt">WebSockets</span><span class="pt">OCR</span><span class="pt">Whisper</span><span class="pt">Next.js</span></div>
-      <a href="contact.html" class="proj-link">Private repo: ask for a walkthrough →</a>
     </div>
 
     <div class="proj feat reveal" id="jd-automobiles">
@@ -95,7 +75,7 @@
     <div class="proj reveal">
       <div class="proj-type">Android · Native</div>
       <h3 class="proj-t">JD Admin</h3>
-      <p class="proj-d">A 21 KB native Android app for the JD Arena staff, with no libraries. It forwards eSewa / Khalti "money received" alerts to a Supabase edge function so mods can approve point loads in seconds, gives the owner one button for every mod and admin tool (opened in Chrome Custom Tabs, so Google sign-in keeps working), and updates itself from private, signed download links.</p>
+      <p class="proj-d">An under-30 KB native Android app for the JD Arena staff, with no libraries. It forwards eSewa / Khalti "money received" alerts to a Supabase edge function so mods can approve point loads in seconds, gives the owner one button for every mod and admin tool (opened in Chrome Custom Tabs, so Google sign-in keeps working), and updates itself from private, signed download links.</p>
       <div class="proj-tags"><span class="pt">Java</span><span class="pt">Android SDK</span><span class="pt">Deno</span></div>
       <a href="#jd-esports-arena" class="proj-link">Part of JD Esports Arena ↑</a>
     </div>
