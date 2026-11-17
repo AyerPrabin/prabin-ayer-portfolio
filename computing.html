@@ -131,7 +131,7 @@
   <div class="proj-grid">
     <div class="proj reveal">
       <h3 class="proj-t">Points follow real money</h3>
-      <p class="proj-d">A phone app forwards "money received" alerts to the backend. A mod can only add points when a player's screenshot matches a real payment: same amount, paid up to 3 hours before the request. Anything else goes to the owner.</p>
+      <p class="proj-d">A phone app forwards "money received" alerts to the backend. A mod can only add points when a player's proof matches one real payment, and each payment can pay only once. Anything unclear goes to the owner.</p>
     </div>
     <div class="proj reveal">
       <h3 class="proj-t">Prizes can't be paid twice</h3>
@@ -144,6 +144,26 @@
     <div class="proj reveal">
       <h3 class="proj-t">Alerts land on the right page</h3>
       <p class="proj-d">A scheduled job spots each new TikTok video and alerts every player. Tapping an alert opens the exact page it is about, and the database only accepts video links in one strict format, so a bad row can't send people somewhere else.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block how" id="write-ups">
+  <div class="sec-eyebrow reveal">Engineering write-ups</div>
+  <h2 class="sec-title reveal">How it's built, and how it <em>broke</em></h2>
+  <p class="sec-sub reveal">The long versions, with file and line references into the real code, including the gaps I haven't closed yet.</p>
+  <div class="proj-grid">
+    <div class="proj reveal">
+      <div class="proj-type">Architecture</div>
+      <h3 class="proj-t">JD Esports Arena: system design</h3>
+      <p class="proj-d">Data flow from phone to Postgres, how the wallet stops double spending (row locks, a CHECK constraint, one-time payment references, a scheduled ledger audit), why payments come through a phone relay instead of a merchant API, plus observability, secrets, a threat model and personal-data handling.</p>
+      <a href="https://github.com/AyerPrabin/jd-esports-arena/blob/master/docs/ARCHITECTURE.md" target="_blank" rel="noopener" class="proj-link">Read the design doc →</a>
+    </div>
+    <div class="proj reveal">
+      <div class="proj-type">Post-mortem</div>
+      <h3 class="proj-t">The night the database said 402</h3>
+      <p class="proj-d">A blameless post-mortem of the 7–8 Nov 2026 outage: one call sent every squad logo as base64, 937 KB on every page open. Timeline from the commits, root cause, what went well and badly, and the rules that came out of it.</p>
+      <a href="https://github.com/AyerPrabin/jd-esports-arena/blob/master/docs/POSTMORTEM-2026-11-07-egress.md" target="_blank" rel="noopener" class="proj-link">Read the post-mortem →</a>
     </div>
   </div>
 </section>
