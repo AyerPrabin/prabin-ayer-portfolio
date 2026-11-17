@@ -87,6 +87,39 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 .log-tag{color:var(--dot,var(--tech));text-transform:uppercase;font-weight:500}
 .log-entry.svc .log-tag{color:var(--warm-l)}
 .log-title{font-size:.94rem;color:var(--cream);line-height:1.5}
+/* "Two worlds" switch: a tiny scene per side. Night terminal = code, warm bar = service. */
+.wt{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;margin-top:2rem}
+.wt input{position:absolute;opacity:0;pointer-events:none}
+.wt-track{position:relative;width:132px;height:38px;border-radius:999px;overflow:hidden;border:1px solid var(--line);cursor:pointer;
+  background:linear-gradient(180deg,#3b1e0d,#1b0e06);box-shadow:inset 0 2px 6px rgba(0,0,0,.55)}
+.wt-night{position:absolute;inset:0;background:linear-gradient(180deg,#0c1836,#04060d);clip-path:inset(0 50% 0 0);transition:clip-path .7s cubic-bezier(.65,0,.35,1)}
+.wt-star{position:absolute;width:2px;height:2px;border-radius:50%;background:#dfe8ff;animation:wt-tw 2.4s ease-in-out infinite}
+.wt-cur{position:absolute;left:12px;bottom:6px;transition:left .55s cubic-bezier(.34,1.4,.64,1);font:500 9px 'JetBrains Mono',monospace;color:#8fb3ff}
+.wt-cur i{font-style:normal;animation:wt-blink 1s steps(1) infinite}
+.wt-bub{position:absolute;bottom:-4px;width:4px;height:4px;border-radius:50%;border:1px solid rgba(255,214,150,.75);animation:wt-rise 2.8s ease-in infinite}
+.wt-knob{position:absolute;top:4px;left:calc(50% - 15px);width:30px;height:30px;border-radius:50%;background:var(--gold-l);
+  box-shadow:0 2px 6px rgba(0,0,0,.5);transition:left .55s cubic-bezier(.34,1.4,.64,1),background-color .4s}
+.wt-knob svg{position:absolute;inset:6px;width:18px;height:18px;opacity:0;transition:opacity .3s}
+.wt-knob .k-all{opacity:1}
+.wt-labels{display:flex;gap:1.1rem;font:500 .68rem 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.wt-labels label{cursor:pointer;color:var(--body);transition:color .25s}
+.wt:focus-within .wt-track{outline:2px solid var(--gold);outline-offset:3px}
+#lv-code:checked~.wt-track .wt-night{clip-path:inset(0 0 0 0)}
+#lv-svc:checked~.wt-track .wt-night{clip-path:inset(0 100% 0 0)}
+#lv-code:checked~.wt-track .wt-cur{left:92px}
+#lv-code:checked~.wt-track .wt-knob{left:4px;background:#e9eefc}
+#lv-svc:checked~.wt-track .wt-knob{left:calc(100% - 34px);background:var(--warm-l)}
+#lv-code:checked~.wt-track .k-code,#lv-svc:checked~.wt-track .k-svc{opacity:1}
+#lv-code:checked~.wt-track .k-all,#lv-svc:checked~.wt-track .k-all{opacity:0}
+#lv-code:checked~.wt-labels [for=lv-code]{color:var(--tech)}
+#lv-all:checked~.wt-labels [for=lv-all]{color:var(--gold-l)}
+#lv-svc:checked~.wt-labels [for=lv-svc]{color:var(--warm-l)}
+.log-entry{transition:background-color .25s,filter .5s}
+.log-strip[data-view=code] .log-entry.svc,.log-strip[data-view=svc] .log-entry:not(.svc){display:none}
+@keyframes wt-tw{50%{opacity:.25}}
+@keyframes wt-blink{50%{opacity:0}}
+@keyframes wt-rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.wt-star,.wt-cur i,.wt-bub{animation:none}.wt-night,.wt-knob{transition:none}}
 .log-title b{font-weight:500;color:#fff}
 
 /* ── the About portrait: one real photo doing the work, full colour, well cropped —
@@ -170,7 +203,27 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
     <div class="stat warm"><div class="stat-num">2 yrs</div><div class="stat-label">Customer-facing: restaurant, bars and retail</div></div>
     <div class="stat warm"><div class="stat-num">14+</div><div class="stat-label">London venues, from The Savoy and Nobu to KOKO</div></div>
   </div>
-  <div class="log-strip">
+  <div class="wt reveal" role="radiogroup" aria-label="Show which log">
+    <input type="radio" name="logview" id="lv-code" value="code">
+    <input type="radio" name="logview" id="lv-all" value="all" checked>
+    <input type="radio" name="logview" id="lv-svc" value="svc">
+    <div class="wt-track" aria-hidden="true">
+      <span class="wt-bub" style="left:62%;animation-delay:0s"></span><span class="wt-bub" style="left:74%;animation-delay:.9s"></span>
+      <span class="wt-bub" style="left:86%;animation-delay:1.7s"></span><span class="wt-bub" style="left:68%;animation-delay:2.3s"></span>
+      <div class="wt-night">
+        <span class="wt-star" style="left:14%;top:22%"></span><span class="wt-star" style="left:30%;top:58%;animation-delay:.6s"></span>
+        <span class="wt-star" style="left:42%;top:18%;animation-delay:1.2s"></span><span class="wt-star" style="left:24%;top:38%;animation-delay:1.8s"></span>
+        <span class="wt-cur">&gt;<i>_</i></span>
+      </div>
+      <span class="wt-knob">
+        <svg class="k-all" viewBox="0 0 18 18"><path d="M9 2v14" stroke="#07070a" stroke-width="1.6"/><circle cx="9" cy="9" r="6.5" fill="none" stroke="#07070a" stroke-width="1.4"/></svg>
+        <svg class="k-code" viewBox="0 0 18 18"><path d="M13.5 11.5A6 6 0 1 1 6.5 4.5a5 5 0 0 0 7 7z" fill="#0c1836"/></svg>
+        <svg class="k-svc" viewBox="0 0 18 18"><path d="M3 4h12L9 10.5z M9 10.5V15 M6 15h6" fill="none" stroke="#2a1306" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </span>
+    </div>
+    <div class="wt-labels"><label for="lv-code">Code</label><label for="lv-all">Both</label><label for="lv-svc">Service</label></div>
+  </div>
+  <div class="log-strip" id="log-strip">
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span> Nov 2026</div>
       <div class="log-title">Released <b>JD Frag Engine 6.2</b>, a Windows tool in C that tunes a PC for Free Fire on an emulator: the FPS cap follows the screen, and everything is put back when the match ends.</div>
@@ -285,5 +338,10 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 <script type="module" src="assets/js/dot-hero.js?v=7"></script>
 <script>window.jdIntro.then(function(){setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)})</script>
 <script src="assets/js/chat-widget.js"></script>
+<script>/* "Two worlds" switch: the radios set the view; tapping the scene steps code -> both -> service */
+(function(){var s=document.getElementById('log-strip'),r=[].slice.call(document.querySelectorAll('input[name=logview]')),t=document.querySelector('.wt-track');
+if(!s||!r.length)return;function set(){var c=r.filter(function(i){return i.checked})[0];s.dataset.view=c?c.value:'all'}
+r.forEach(function(i){i.addEventListener('change',set)});
+if(t)t.addEventListener('click',function(){var i=r.findIndex(function(x){return x.checked});var n=r[(i+1)%r.length];n.checked=true;n.focus({preventScroll:true});set()});set()})();</script>
 </body>
 </html>
