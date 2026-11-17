@@ -84,6 +84,14 @@ function imgFallback(img) {
         const v = s[el.dataset.stat];
         if (typeof v === 'string' && /^\d{2,5}\+$/.test(v)) el.textContent = v;
       });
+      document.querySelectorAll('[data-stat-date]').forEach(el => {
+        const v = s[el.dataset.statDate];
+        if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return;
+        el.dateTime = v;
+        el.textContent = new Date(v + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        const wrap = el.closest('[hidden]');
+        if (wrap) wrap.hidden = false;
+      });
     })
     .catch(() => {});
 })();
