@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ayerprabin.github.io/prabin-ayer-portfolio/sitemap.xml
