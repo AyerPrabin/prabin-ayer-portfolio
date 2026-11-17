@@ -203,3 +203,6 @@ footer { border-top: 1px solid var(--line); padding: 2.5rem 6%; display: flex; j
   .card:active, .proj:active, .g-card:active, .job-card:active { border-color: var(--gold-m); transform: scale(.985); transition-duration: .12s; }
   .btn:active, .proj-link:active { transform: scale(.96); transition-duration: .1s; }
 }
+
+/* phones: the chat bubble waits until you scroll, so it never covers the hero buttons */
+@media (max-width: 600px) { html:not(.past-hero) .chat-launcher { opacity: 0; pointer-events: none; transform: scale(.8); } .chat-launcher { transition: opacity .3s, transform .3s; } }

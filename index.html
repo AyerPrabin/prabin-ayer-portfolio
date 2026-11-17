@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 <noscript><style>.dot-photo{opacity:1}</style></noscript>
 <link rel="stylesheet" href="assets/css/intro.css?v=1">
 <script>/* opening title card: first visit of the session only, never with reduced motion (assets/js/intro.js) */
@@ -70,6 +70,20 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
   .hero-word{top:11svh;font-size:clamp(2.6rem,13.4vw,8rem)}
   .dot-stage{order:-1;justify-self:center;height:auto;aspect-ratio:1/1;max-height:62svh;width:100%}
   .hero-inner{padding:1.2rem 0 3.5rem}
+}
+/* phones: get the buttons onto the first screen; the portrait shrinks, the eyebrow (said again in the tagline) goes */
+@media(max-width:600px){
+  #hero{padding-top:4.2rem}
+  .dot-stage{max-height:34svh}
+  .hero-word{top:9svh}
+  .hero-eyebrow{display:none}
+  .hero-inner{padding:.6rem 0 2.6rem}
+  .hero-name{font-size:2.6rem}
+  .hero-tagline{font-size:1.15rem;margin:.6rem 0 .8rem}
+  .hero-desc{font-size:.92rem;line-height:1.6;margin-bottom:1.2rem}
+  .hero-cta{gap:.5rem}
+  .hero-cta .btn{padding-left:.8rem;padding-right:.8rem;font-size:.82rem}
+  .hero-live{margin-top:1.1rem;font-size:.8rem}
 }
 
 /* ── the signature element: a real log, not a decorative stat bar. Interleaves actual
@@ -344,7 +358,7 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
   </div>
 </footer>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script src="assets/js/site.js?v=3"></script>
+<script src="assets/js/site.js?v=4"></script>
 <script type="module" src="assets/js/dot-hero.js?v=7"></script>
 <script>window.jdIntro.then(function(){setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)})</script>
 <script src="assets/js/chat-widget.js"></script>

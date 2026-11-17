@@ -62,6 +62,7 @@ function imgFallback(img) {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       if (sp) sp.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
       if (btt) btt.classList.toggle('show', y > 600);
+      document.documentElement.classList.toggle('past-hero', y > 320);
       applyParallax();
       ticking = false;
     });
