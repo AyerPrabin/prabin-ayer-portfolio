@@ -30,6 +30,20 @@
 .proj.feat:has(.proj-status)::after{display:none}   /* the card's own Live/Active badge replaces the generic label */
 .how{max-width:1100px;margin:0 auto}
 .proj-status~.proj-type{padding-right:6.6rem}   /* keep the category clear of the status badge */
+/* desktop (19 Nov 2026): the live platform gets the full row with its phone recording beside the text;
+   the rest sit on a fixed 3-column grid with no half-empty rows (ERP and jd-stock take two columns). */
+@media(min-width:1100px){
+  .proj-grid{grid-template-columns:repeat(3,1fr)}
+  #jd-esports-arena{grid-column:1/-1;display:grid;grid-template-columns:1fr 250px;column-gap:3.5rem;align-content:start;padding:2.2rem 2.4rem}
+  #jd-esports-arena>*{grid-column:1}
+  #jd-esports-arena>.proj-status{position:static;justify-self:start;margin-bottom:.9rem}
+  #jd-esports-arena>video{grid-column:2;grid-row:1/span 7;width:100%!important;margin:0!important;align-self:center}
+  #jd-esports-arena .proj-d{font-size:.92rem;max-width:68ch}
+  #jd-esports-arena .proj-link{justify-self:start;min-width:260px;margin-top:.5rem}
+  #jd-automobiles,#jd-stock{grid-column:span 2}
+  #jd-automobiles .proj-d,#jd-stock .proj-d{max-width:68ch}
+  #how-it-works .proj-grid{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
@@ -69,7 +83,7 @@
       <div class="proj-type">Full-Stack · Community Platform</div>
       <h3 class="proj-t">JD Esports Arena</h3>
       <p class="proj-d">A live Free Fire tournament platform for the community back home in Nepal, now with its own Android app. Players register squads, hold a points wallet topped up through eSewa and Khalti, challenge each other in Clash Squad for points (mods settle disputed results from screenshots sent in the match chat), find teammates (an AI matcher groups same-language players into a squad every week) and chat with photos and video. Staff run events from a moderator panel that matches each point load to the real payment. Supabase backend with row-level security throughout.</p>
-      <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span><span class="pt">Android (TWA)</span></div>
+      <div class="proj-tags"><span class="pt">JavaScript</span><span class="pt">Supabase</span><span class="pt">PostgreSQL</span><span class="pt">Edge Functions</span><span class="pt">Android (WebView)</span></div>
       <video src="assets/img/jdesport-phone.mp4" poster="assets/img/jdesport-phone.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scrolling through jdesport.co.uk on a phone" style="display:block;width:min(240px,70%);margin:1.2rem auto;border-radius:22px;border:6px solid #1c1d22;box-shadow:0 18px 40px rgba(0,0,0,.5)"></video>
       <a href="https://jdesport.co.uk" target="_blank" rel="noopener" class="proj-link">Visit the live site →</a>
       <a href="#how-it-works" class="proj-link">How the hard parts work ↓</a>
@@ -116,7 +130,7 @@
       <a href="https://github.com/AyerPrabin/SafeStep" target="_blank" class="proj-link">GitHub →</a>
     </div>
 
-    <div class="proj reveal">
+    <div class="proj reveal" id="jd-stock">
       <span class="proj-status wip">In Progress</span>
       <div class="proj-type">Full-Stack · Business</div>
       <h3 class="proj-t">jd-stock</h3>
