@@ -20,7 +20,7 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Prabin Ayer","alternateName":"ayerprabin","url":"https://ayerprabin.com/","image":"https://ayerprabin.com/assets/img/og.jpg","jobTitle":"Computing Science student and software developer","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Coventry University London"},"knowsAbout":["Python","Java","SQL","PostgreSQL","Supabase","FastAPI","JavaScript","TypeScript"],"sameAs":["https://github.com/AyerPrabin","https://www.linkedin.com/in/ayerprabin/","https://www.instagram.com/ayerprabin/","https://www.facebook.com/ayerprabin","https://jdesport.co.uk"]}
+{"@context":"https://schema.org","@type":"Person","@id":"https://ayerprabin.com/#me","name":"Prabin Ayer","givenName":"Prabin","familyName":"Ayer","alternateName":"ayerprabin","url":"https://ayerprabin.com/","image":"https://ayerprabin.com/assets/img/og.jpg","jobTitle":"Computing Science student and software developer","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Coventry University London"},"knowsAbout":["Python","Java","SQL","PostgreSQL","Supabase","FastAPI","JavaScript","TypeScript"],"sameAs":["https://github.com/AyerPrabin","https://www.linkedin.com/in/ayerprabin/","https://www.instagram.com/ayerprabin/","https://www.facebook.com/ayerprabin","https://jdesport.co.uk"],"owns":{"@type":"WebSite","name":"JD Esports Arena","url":"https://jdesport.co.uk/"}}
 </script><!-- /seo -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,6 +187,25 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 .index-row-d{font-size:.82rem;color:var(--body);text-align:right;max-width:340px}
 .index-row-arrow{font-family:'JetBrains Mono',monospace;color:var(--gold-m);flex-shrink:0}
 @media(max-width:600px){.index-row{flex-direction:column;align-items:flex-start;gap:.3rem}.index-row-d{text-align:left}}
+.stat-num{white-space:nowrap}
+.stat-row .stat::after{display:none}
+
+/* ── desktop (19 Nov 2026): use the width. Numbers + log switch on the left, the log itself
+   on the right, so the page reads across instead of down one 800px column. ── */
+@media(min-width:1100px){
+  .log-section{max-width:1100px;display:grid;grid-template-columns:minmax(0,380px) 1fr;grid-template-rows:auto auto auto auto 1fr;column-gap:4.5rem;align-items:start;padding-top:5rem}
+  .log-section>:not(.log-strip){grid-column:1}
+  .log-section>.log-strip{grid-column:2;grid-row:1/span 5;margin-top:.4rem}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+  .stat{padding:1.4rem 1.3rem}
+  .stat-num{font-size:3rem}
+  .log-entry{padding-top:.75rem;padding-bottom:.75rem}
+  .log-title{font-size:1rem;max-width:62ch}
+  .index-list{max-width:none;margin-top:1.8rem}
+  .index-row{display:grid;grid-template-columns:240px 1fr auto;gap:2rem;padding:1.5rem .4rem}
+  .index-row-t{font-size:1.35rem}
+  .index-row-d{text-align:left;max-width:none;font-size:.9rem}
+}
 
 </style>
 </head>
