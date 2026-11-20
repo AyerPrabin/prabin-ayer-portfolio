@@ -129,23 +129,32 @@
     </div>
 
     <div class="form-card reveal">
-      <form action="mailto:ayerprabin95@gmail.com" method="post" enctype="text/plain">
+      <form id="contact-form" action="mailto:ayerprabin95@gmail.com" method="get">
         <div class="form-row">
-          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Your name"></div>
-          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="cf-name">Full Name</label><input id="cf-name" type="text" name="name" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><label for="cf-email">Email Address</label><input id="cf-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
         </div>
         <div class="field">
-          <label>Subject</label>
-          <select name="subject">
+          <label for="cf-subject">Subject</label>
+          <select id="cf-subject" name="subject">
             <option>Graduate role or interview</option><option>Technical collaboration</option><option>General question</option><option>Other</option>
           </select>
         </div>
         <div class="field">
-          <label>Your Message</label>
-          <textarea rows="6" name="message" placeholder="Tell me about your project..."></textarea>
+          <label for="cf-message">Your Message</label>
+          <textarea id="cf-message" rows="6" name="message" placeholder="What would you like to talk about?" required></textarea>
         </div>
         <button type="submit" class="btn btn-gold" style="width:100%">Send Message →</button>
+        <p class="form-note" id="cf-note" style="margin-top:.8rem;font-size:.8rem;color:var(--body)">This opens your email app with the message filled in. Or email ayerprabin95@gmail.com directly.</p>
       </form>
+      <script>
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var f = this, v = function (n) { return f.elements[n].value.trim(); };
+        var nl = String.fromCharCode(10); var body = v('message') + nl + nl + v('name') + nl + v('email');
+        location.href = 'mailto:ayerprabin95@gmail.com?subject=' + encodeURIComponent(v('subject') + ' (from ayerprabin.com)') + '&body=' + encodeURIComponent(body);
+      });
+      </script>
       <div class="avail-row">
         <span class="avail-item"><span class="dot-live"></span> Open to 2027 graduate roles</span>
         <span class="avail-item">Response time: &lt; 24h</span>
