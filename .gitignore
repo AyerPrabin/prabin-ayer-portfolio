@@ -2,3 +2,5 @@ cut.png
 depth.npy
 depth.png
 zfinal.png
+new-photos/
+.playwright-cli/
