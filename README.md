@@ -10,7 +10,8 @@ Personal portfolio site for Prabin Ayer. Static multi-page HTML site, no build s
 | `computing.html` | Computing Science projects — real repos only (JD Esports Arena, ZULU AI, JD Frag Engine, SafeStep, CPU/GPU Benchmark, jd-stock) |
 | `hospitality.html` | Hospitality experience and work history |
 | `skills.html` | Technical & professional skills — Computing Science and Hospitality |
-| `gallery.html` | Visual index of real projects and hospitality highlights |
+| `gallery.html` | Removed 22 Nov 2026: redirects to the home page |
+| `certificates.html` | Claude Academy certificates with badge photos |
 | `contact.html` | Contact details and message form |
 
 ## Photos
