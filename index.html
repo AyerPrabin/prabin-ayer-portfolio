@@ -57,6 +57,19 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 .hero-name{font-family:'Fraunces',serif;font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;color:#fff;line-height:.98;letter-spacing:-.015em}
 .hero-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.35;margin:1.2rem 0 1.4rem}
 .hero-tagline .tech{color:var(--tech)}
+.glance{display:grid;grid-template-columns:1.6fr 1fr;gap:1.6rem;margin-top:1.4rem}
+@media(max-width:860px){.glance{grid-template-columns:1fr}}
+.glance-facts{background:var(--panel);border:1px solid var(--line);padding:1.6rem 1.8rem;margin:0;display:grid;gap:1rem}
+.glance-facts div{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.glance-facts div:last-child{border-bottom:0;padding-bottom:0}
+@media(max-width:520px){.glance-facts div{grid-template-columns:1fr;gap:.25rem}}
+.glance-facts dt{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:.2rem}
+.glance-facts dd{margin:0;color:var(--cream);font-size:.92rem;line-height:1.6}
+.glance-proof{background:var(--panel);border:1px solid var(--line);padding:1.6rem 1.8rem;display:flex;flex-direction:column}
+.glance-proof a{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--line);color:var(--cream);font-size:.9rem;transition:color .2s}
+.glance-proof a:last-child{border-bottom:0}
+.glance-proof a span{color:var(--gold)}
+.glance-proof a:hover{color:var(--gold-l)}
 .hero-tagline .hosp{color:var(--warm-l)}
 .hero-desc{color:var(--cream);opacity:.78;font-size:1rem;line-height:1.8;margin-bottom:2rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
@@ -228,8 +241,7 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
   <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <div class="nav-links" id="nav-links">
     <a href="./" class="active" onclick="closeMenu()">Overview</a>
-    <a href="computing" onclick="closeMenu()">Computing Science</a>
-    <a href="hospitality" onclick="closeMenu()">Hospitality</a>
+    <a href="computing" onclick="closeMenu()">Projects</a>
     <a href="skills" onclick="closeMenu()">Skills</a>
     <a href="certificates" onclick="closeMenu()">Certificates</a>
     <a href="contact" class="nav-cta" onclick="closeMenu()">Contact</a>
@@ -239,10 +251,10 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 <section id="hero">
   <div class="hero-word" aria-hidden="true" data-text="DEVELOPER">DEVELOPER</div>
   <div class="hero-inner">
-    <p class="hero-eyebrow"><span class="dot"></span>London · funds his own degree · builds under pressure</p>
+    <p class="hero-eyebrow"><span class="dot"></span>London · Graduate software engineer · from Aug 2027</p>
     <h1 class="hero-name reveal">Prabin Ayer</h1>
-    <p class="hero-tagline reveal"><span class="tech">Ships production code.</span> <span class="hosp">Serves a busy hotel restaurant floor.</span></p>
-    <p class="hero-desc reveal">Final-year Computing Science at Coventry University London (71% First Class average at Level 5), graduating July 2027. I designed, built and run a live tournament and points-wallet platform with real payments, and pay for my degree with hotel and bar shifts. Open to graduate software engineering roles.</p>
+    <p class="hero-tagline reveal"><span class="tech">Builds it. Ships it. Runs it in production.</span></p>
+    <p class="hero-desc reveal">Final-year Computing Science at Coventry University London (71% First Class average at Level 5), graduating July 2027. I designed, built and run a live tournament and points-wallet platform with real payments: PostgreSQL, TypeScript Edge Functions and an Android app. Open to graduate software engineering roles anywhere in the UK.</p>
     <div class="hero-cta reveal">
       <a href="assets/Prabin_Ayer_CV.pdf" class="btn btn-gold" download>Download CV</a>
       <a href="computing" class="btn btn-ghost">See My Work</a>
@@ -255,34 +267,39 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
   </div>
 </section>
 
+<section class="block glance-wrap" id="at-a-glance">
+  <div class="sec-eyebrow reveal">For hiring managers</div>
+  <h2 class="sec-title reveal">At a <em>glance</em></h2>
+  <div class="glance reveal">
+    <dl class="glance-facts">
+      <div><dt>Looking for</dt><dd>Graduate software engineer / developer role</dd></div>
+      <div><dt>Available</dt><dd>Full-time from August 2027 (BSc ends July 2027)</dd></div>
+      <div><dt>Location</dt><dd>London now, happy to relocate anywhere in the UK</dd></div>
+      <div><dt>Right to work</dt><dd>Student visa until July 2027, then needs Skilled Worker sponsorship</dd></div>
+      <div><dt>Degree</dt><dd>BSc (Hons) Computing Science, CU London: 71.00% at Level 5, every module passed first time</dd></div>
+      <div><dt>Strongest in</dt><dd>PostgreSQL, TypeScript, Python, backend APIs, testing and CI</dd></div>
+    </dl>
+    <div class="glance-proof">
+      <div class="skills-t" style="margin-top:0">Proof, not promises</div>
+      <a href="https://jdesport.co.uk" target="_blank" rel="noopener">Live product: jdesport.co.uk <span>→</span></a>
+      <a href="https://github.com/AyerPrabin/jd-esports-arena/blob/master/docs/ARCHITECTURE.md" target="_blank" rel="noopener">System design doc <span>→</span></a>
+      <a href="https://github.com/AyerPrabin/jd-esports-arena/blob/master/docs/POSTMORTEM-2026-11-07-egress.md" target="_blank" rel="noopener">Outage post-mortem <span>→</span></a>
+      <a href="https://github.com/AyerPrabin" target="_blank" rel="noopener">GitHub: tested public repos <span>→</span></a>
+      <a href="computing#education">Module marks <span>→</span></a>
+      <a href="certificates">Certificates <span>→</span></a>
+      <a href="assets/Prabin_Ayer_CV.pdf" download>One-page CV (PDF) <span>→</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="log-section">
   <div class="sec-eyebrow reveal">Recent</div>
-  <h2 class="sec-title reveal">Two logs, <em>one person</em></h2>
+  <h2 class="sec-title reveal">What I&rsquo;ve been <em>shipping</em></h2>
   <div class="stat-row reveal">
     <div class="stat"><div class="stat-num" data-stat="players">490+</div><div class="stat-label">Players registered on JD Esports Arena</div></div>
     <div class="stat"><div class="stat-num">129</div><div class="stat-label">Players active on JD Arena in one week (Nov 2026)</div></div>
-    <div class="stat warm"><div class="stat-num">2 yrs</div><div class="stat-label">Customer-facing: hotels, restaurants and bars</div></div>
-    <div class="stat warm"><div class="stat-num">14+</div><div class="stat-label">London venues, from The Savoy and Nobu to KOKO</div></div>
-  </div>
-  <div class="wt reveal" role="radiogroup" aria-label="Show which log">
-    <input type="radio" name="logview" id="lv-code" value="code">
-    <input type="radio" name="logview" id="lv-all" value="all" checked>
-    <input type="radio" name="logview" id="lv-svc" value="svc">
-    <div class="wt-track" aria-hidden="true">
-      <span class="wt-bub" style="left:62%;animation-delay:0s"></span><span class="wt-bub" style="left:74%;animation-delay:.9s"></span>
-      <span class="wt-bub" style="left:86%;animation-delay:1.7s"></span><span class="wt-bub" style="left:68%;animation-delay:2.3s"></span>
-      <div class="wt-night">
-        <span class="wt-star" style="left:14%;top:22%"></span><span class="wt-star" style="left:30%;top:58%;animation-delay:.6s"></span>
-        <span class="wt-star" style="left:42%;top:18%;animation-delay:1.2s"></span><span class="wt-star" style="left:24%;top:38%;animation-delay:1.8s"></span>
-        <span class="wt-cur">&gt;<i>_</i></span>
-      </div>
-      <span class="wt-knob">
-        <svg class="k-all" viewBox="0 0 18 18"><path d="M9 2v14" stroke="#07070a" stroke-width="1.6"/><circle cx="9" cy="9" r="6.5" fill="none" stroke="#07070a" stroke-width="1.4"/></svg>
-        <svg class="k-code" viewBox="0 0 18 18"><path d="M13.5 11.5A6 6 0 1 1 6.5 4.5a5 5 0 0 0 7 7z" fill="#0c1836"/></svg>
-        <svg class="k-svc" viewBox="0 0 18 18"><path d="M3 4h12L9 10.5z M9 10.5V15 M6 15h6" fill="none" stroke="#2a1306" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      </span>
-    </div>
-    <div class="wt-labels"><label for="lv-code">Code</label><label for="lv-all">Both</label><label for="lv-svc">Service</label></div>
+    <div class="stat"><div class="stat-num">58</div><div class="stat-label">TypeScript Edge Functions in production</div></div>
+    <div class="stat"><div class="stat-num">71%</div><div class="stat-label">Level 5 average, First Class (CU London)</div></div>
   </div>
   <div class="log-strip" id="log-strip">
     <div class="log-entry reveal">
@@ -301,17 +318,9 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
       <div class="log-meta"><span class="log-tag">build</span> Oct – Nov 2026</div>
       <div class="log-title">Took <b>JD Esports Arena</b> to Android: a points wallet, Clash Squad challenges, an AI-matched teammate finder and photo/video chat.</div>
     </div>
-    <div class="log-entry svc reveal">
-      <div class="log-meta"><span class="log-tag">service</span> Feb 2026 – present</div>
-      <div class="log-title">Waiting staff at <b>Leonardo Hotel, London</b>: full table service across breakfast, lunch and evening sittings.</div>
-    </div>
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span></div>
       <div class="log-title">Running <b>JD Esports Arena</b> live: <span data-stat="players">490+</span> players, admin brackets, row-level security throughout. When a bandwidth limit took it offline in Nov 2026, I found the cause and cut the heaviest call from 937 KB to a small fraction of that.</div>
-    </div>
-    <div class="log-entry svc reveal">
-      <div class="log-meta"><span class="log-tag">service</span> 2025 – present</div>
-      <div class="log-title">Barback across London venues incl. <b>KOKO</b> and <b>Fuller's</b>.</div>
     </div>
     <div class="log-entry reveal">
       <div class="log-meta"><span class="log-tag">build</span></div>
@@ -346,9 +355,9 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
       <div class="about-caption">Tower Bridge, London</div>
     </div>
     <div class="about-wrap reveal" data-anim="right">
-      <p class="reveal">I'm a Computing Science student who blends technical precision with real-world service experience. My degree is entirely self-funded — I work hotel restaurant and bar shifts to pay for it, which means every hour of coding time is one I chose over sleep or money, not a given.</p>
-      <p class="pull reveal">The best technology is the kind that serves people effectively and elegantly — that's a hospitality standard as much as an engineering one.</p>
-      <p class="reveal">Hospitality taught me to read a room, de-escalate fast, and stay graceful when a service rail is on fire. Those instincts show up directly in how I build software: calm under a production incident, precise about what actually matters to the person on the other end.</p>
+      <p class="reveal">I'm a final-year Computing Science student who likes building things real people use. JD Esports Arena started as a tournament page for Free Fire players back home in Nepal and grew into a platform with a points wallet, payments, moderation and an Android app, with <span data-stat="players">490+</span> players. I run it myself, so I've designed the database, written the server code, shipped releases and fixed it at 2am when it broke.</p>
+      <p class="pull reveal">Money moving through my code taught me to care about correctness first: locks, constraints, tests, and a post-mortem when something goes wrong.</p>
+      <p class="reveal">I pay for my degree with hotel and bar shifts in London, which taught me to stay calm under pressure and communicate clearly with a team. I'm looking for a graduate role where I can learn from experienced engineers and ship code that matters.</p>
       <div class="skills-t">Currently Building</div>
       <div class="skill-tags"><span class="skill-tag">JD Esports Arena</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Python</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Supabase</span><span class="skill-tag">Android</span></div>
     </div>
@@ -366,19 +375,19 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
       <span class="index-row-d">Real projects — JD Esports Arena, JD Admin, Jay Durge ERP and more</span>
       <span class="index-row-arrow">→</span>
     </a>
-    <a href="hospitality" class="index-row reveal">
-      <span class="index-row-t">Hospitality</span>
-      <span class="index-row-d">Waiting staff, barback and bartending</span>
+    <a href="certificates" class="index-row reveal">
+      <span class="index-row-t">Certificates</span>
+      <span class="index-row-d">Anthropic Claude Academy courses</span>
       <span class="index-row-arrow">→</span>
     </a>
     <a href="skills" class="index-row reveal">
       <span class="index-row-t">Skills</span>
-      <span class="index-row-d">The full stack, both sides</span>
+      <span class="index-row-d">Languages, backend, testing and tools</span>
       <span class="index-row-arrow">→</span>
     </a>
     <a href="contact" class="index-row reveal">
       <span class="index-row-t">Get In Touch</span>
-      <span class="index-row-d">Open to 2027 graduate developer roles, collaborations &amp; freelance</span>
+      <span class="index-row-d">Open to 2027 graduate software engineering roles</span>
       <span class="index-row-arrow">→</span>
     </a>
   </div>
@@ -392,6 +401,7 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
     <a href="https://www.instagram.com/ayerprabin/" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/ayerprabin" target="_blank">Facebook</a>
     <a href="mailto:ayerprabin95@gmail.com">Email</a>
+    <a href="hospitality">Hospitality work</a>
   </div>
 </footer>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -399,10 +409,5 @@ else setTimeout(function(){window.jdIntroDone();document.documentElement.classLi
 <script type="module" src="assets/js/dot-hero.js?v=7"></script>
 <script>window.jdIntro.then(function(){setTimeout(function(){var s=document.getElementById('dot-stage');if(s&&!s.classList.contains('gl-on'))s.classList.add('revealed','no-gl')},5000)})</script>
 <script src="assets/js/chat-widget.js?v=2"></script>
-<script>/* "Two worlds" switch: the radios set the view; tapping the scene steps code -> both -> service */
-(function(){var s=document.getElementById('log-strip'),r=[].slice.call(document.querySelectorAll('input[name=logview]')),t=document.querySelector('.wt-track');
-if(!s||!r.length)return;function set(){var c=r.filter(function(i){return i.checked})[0];s.dataset.view=c?c.value:'all'}
-r.forEach(function(i){i.addEventListener('change',set)});
-if(t)t.addEventListener('click',function(){var i=r.findIndex(function(x){return x.checked});var n=r[(i+1)%r.length];n.checked=true;n.focus({preventScroll:true});set()});set()})();</script>
 </body>
 </html>
